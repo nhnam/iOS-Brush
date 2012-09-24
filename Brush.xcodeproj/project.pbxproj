@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FCC052C1610CE2A00601A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCC052B1610CE2A00601A8A /* libz.dylib */; };
+		1FCC05321610D73E00601A8A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCC052E1610D73E00601A8A /* libTestFlight.a */; };
+		1FCC05331610D73E00601A8A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1FCC052F1610D73E00601A8A /* README.md */; };
+		1FCC05341610D73E00601A8A /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1FCC05301610D73E00601A8A /* release_notes.md */; };
 		1FF6A7D2160FE1A500730B8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6A7D1160FE1A500730B8E /* UIKit.framework */; };
 		1FF6A7D4160FE1A500730B8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6A7D3160FE1A500730B8E /* Foundation.framework */; };
 		1FF6A7D6160FE1A500730B8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6A7D5160FE1A500730B8E /* CoreGraphics.framework */; };
@@ -23,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FCC052B1610CE2A00601A8A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1FCC052E1610D73E00601A8A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		1FCC052F1610D73E00601A8A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		1FCC05301610D73E00601A8A /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		1FCC05311610D73E00601A8A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		1FF6A7CD160FE1A500730B8E /* Brush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF6A7D1160FE1A500730B8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1FF6A7D3160FE1A500730B8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,18 +59,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCC052C1610CE2A00601A8A /* libz.dylib in Frameworks */,
 				1FF6A7D2160FE1A500730B8E /* UIKit.framework in Frameworks */,
 				1FF6A7D4160FE1A500730B8E /* Foundation.framework in Frameworks */,
 				1FF6A7D6160FE1A500730B8E /* CoreGraphics.framework in Frameworks */,
+				1FCC05321610D73E00601A8A /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FCC052D1610D73E00601A8A /* TestFlightSDK1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				1FCC052E1610D73E00601A8A /* libTestFlight.a */,
+				1FCC052F1610D73E00601A8A /* README.md */,
+				1FCC05301610D73E00601A8A /* release_notes.md */,
+				1FCC05311610D73E00601A8A /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.1;
+			sourceTree = "<group>";
+		};
 		1FF6A7C2160FE1A500730B8E = {
 			isa = PBXGroup;
 			children = (
+				1FCC052D1610D73E00601A8A /* TestFlightSDK1.1 */,
+				1FCC052B1610CE2A00601A8A /* libz.dylib */,
 				1FF6A7D7160FE1A500730B8E /* Brush */,
 				1FF6A7D0160FE1A500730B8E /* Frameworks */,
 				1FF6A7CE160FE1A500730B8E /* Products */,
@@ -173,6 +197,8 @@
 				1FF6A7E6160FE1A500730B8E /* Default@2x.png in Resources */,
 				1FF6A7E8160FE1A500730B8E /* Default-568h@2x.png in Resources */,
 				1FF6A7F4160FE1A500730B8E /* MainStoryboard.storyboard in Resources */,
+				1FCC05331610D73E00601A8A /* README.md in Resources */,
+				1FCC05341610D73E00601A8A /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +296,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Brush/Brush-Prefix.pch";
 				INFOPLIST_FILE = "Brush/Brush-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -278,9 +309,15 @@
 		1FF6A7F9160FE1A500730B8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Brush/Brush-Prefix.pch";
 				INFOPLIST_FILE = "Brush/Brush-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -305,6 +342,7 @@
 				1FF6A7F9160FE1A500730B8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

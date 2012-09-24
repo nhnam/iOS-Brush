@@ -8,11 +8,17 @@
 
 #import "AppDelegate.h"
 
+#define TESTING 1
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [TestFlight takeOff:@"f8ab3108d2a02bf989afc349c796fea2_MTM1NTUyMjAxMi0wOS0yNCAxMjoxNzoxMS44NjQ5NDY"];
+#ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
     return YES;
 }
 
