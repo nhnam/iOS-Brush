@@ -17,6 +17,9 @@
 		1FBD055C163074ED000961DD /* Icon-512@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD0552163074ED000961DD /* Icon-512@2x.png */; };
 		1FBD055D163074ED000961DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD0553163074ED000961DD /* Default.png */; };
 		1FBD055E163074ED000961DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD0554163074ED000961DD /* Default@2x.png */; };
+		1FCBFF521630AD6A0070839F /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCBFF4F1630AD6A0070839F /* play.png */; };
+		1FCBFF531630AD6A0070839F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCBFF501630AD6A0070839F /* settings.png */; };
+		1FCBFF541630AD6A0070839F /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FCBFF511630AD6A0070839F /* tutorial.png */; };
 		1FCC052C1610CE2A00601A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCC052B1610CE2A00601A8A /* libz.dylib */; };
 		1FCC05321610D73E00601A8A /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCC052E1610D73E00601A8A /* libTestFlight.a */; };
 		1FCC05331610D73E00601A8A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1FCC052F1610D73E00601A8A /* README.md */; };
@@ -44,6 +47,9 @@
 		1FBD0552163074ED000961DD /* Icon-512@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-512@2x.png"; path = "../Icon-512@2x.png"; sourceTree = "<group>"; };
 		1FBD0553163074ED000961DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		1FBD0554163074ED000961DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		1FCBFF4F1630AD6A0070839F /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		1FCBFF501630AD6A0070839F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		1FCBFF511630AD6A0070839F /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
 		1FCC052B1610CE2A00601A8A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1FCC052E1610D73E00601A8A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		1FCC052F1610D73E00601A8A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 		1FBD055F16307748000961DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1FCBFF4F1630AD6A0070839F /* play.png */,
+				1FCBFF501630AD6A0070839F /* settings.png */,
+				1FCBFF511630AD6A0070839F /* tutorial.png */,
 				1FBD054B163074ED000961DD /* Icon-Small.png */,
 				1FBD054C163074ED000961DD /* Icon-Small@2x.png */,
 				1FBD054D163074ED000961DD /* Icon-Small-50.png */,
@@ -235,6 +244,9 @@
 				1FBD055C163074ED000961DD /* Icon-512@2x.png in Resources */,
 				1FBD055D163074ED000961DD /* Default.png in Resources */,
 				1FBD055E163074ED000961DD /* Default@2x.png in Resources */,
+				1FCBFF521630AD6A0070839F /* play.png in Resources */,
+				1FCBFF531630AD6A0070839F /* settings.png in Resources */,
+				1FCBFF541630AD6A0070839F /* tutorial.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +341,7 @@
 		1FF6A7F8160FE1A500730B8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Brush/Brush-Prefix.pch";
 				INFOPLIST_FILE = "Brush/Brush-Info.plist";
@@ -338,6 +351,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -345,6 +359,7 @@
 		1FF6A7F9160FE1A500730B8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Brush/Brush-Prefix.pch";
@@ -355,6 +370,7 @@
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
