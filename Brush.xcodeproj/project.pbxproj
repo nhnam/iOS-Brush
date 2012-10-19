@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F64D84916321DB300AE22B7 /* BrushViewController.m */; };
 		1FBD0555163074ED000961DD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054B163074ED000961DD /* Icon-Small.png */; };
 		1FBD0556163074ED000961DD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054C163074ED000961DD /* Icon-Small@2x.png */; };
 		1FBD0557163074ED000961DD /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054D163074ED000961DD /* Icon-Small-50.png */; };
@@ -29,14 +30,13 @@
 		1FF6A7D6160FE1A500730B8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6A7D5160FE1A500730B8E /* CoreGraphics.framework */; };
 		1FF6A7DC160FE1A500730B8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6A7DA160FE1A500730B8E /* InfoPlist.strings */; };
 		1FF6A7DE160FE1A500730B8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7DD160FE1A500730B8E /* main.m */; };
-		1FF6A7E2160FE1A500730B8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7E1160FE1A500730B8E /* AppDelegate.m */; };
-		1FF6A7EB160FE1A500730B8E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7EA160FE1A500730B8E /* RootViewController.m */; };
-		1FF6A7EE160FE1A500730B8E /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7ED160FE1A500730B8E /* DataViewController.m */; };
-		1FF6A7F1160FE1A500730B8E /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7F0160FE1A500730B8E /* ModelController.m */; };
+		1FF6A7E2160FE1A500730B8E /* BrushAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6A7E1160FE1A500730B8E /* BrushAppDelegate.m */; };
 		1FF6A7F4160FE1A500730B8E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6A7F2160FE1A500730B8E /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F64D84816321DB300AE22B7 /* BrushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushViewController.h; sourceTree = "<group>"; };
+		1F64D84916321DB300AE22B7 /* BrushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushViewController.m; sourceTree = "<group>"; };
 		1FBD054B163074ED000961DD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../Icon-Small.png"; sourceTree = "<group>"; };
 		1FBD054C163074ED000961DD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
 		1FBD054D163074ED000961DD /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -63,14 +63,8 @@
 		1FF6A7DB160FE1A500730B8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FF6A7DD160FE1A500730B8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1FF6A7DF160FE1A500730B8E /* Brush-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Brush-Prefix.pch"; sourceTree = "<group>"; };
-		1FF6A7E0160FE1A500730B8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1FF6A7E1160FE1A500730B8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1FF6A7E9160FE1A500730B8E /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		1FF6A7EA160FE1A500730B8E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		1FF6A7EC160FE1A500730B8E /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		1FF6A7ED160FE1A500730B8E /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		1FF6A7EF160FE1A500730B8E /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		1FF6A7F0160FE1A500730B8E /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		1FF6A7E0160FE1A500730B8E /* BrushAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrushAppDelegate.h; sourceTree = "<group>"; };
+		1FF6A7E1160FE1A500730B8E /* BrushAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrushAppDelegate.m; sourceTree = "<group>"; };
 		1FF6A7F3160FE1A500730B8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,14 +147,10 @@
 		1FF6A7D7160FE1A500730B8E /* Brush */ = {
 			isa = PBXGroup;
 			children = (
-				1FF6A7E0160FE1A500730B8E /* AppDelegate.h */,
-				1FF6A7E1160FE1A500730B8E /* AppDelegate.m */,
-				1FF6A7E9160FE1A500730B8E /* RootViewController.h */,
-				1FF6A7EA160FE1A500730B8E /* RootViewController.m */,
-				1FF6A7EC160FE1A500730B8E /* DataViewController.h */,
-				1FF6A7ED160FE1A500730B8E /* DataViewController.m */,
-				1FF6A7EF160FE1A500730B8E /* ModelController.h */,
-				1FF6A7F0160FE1A500730B8E /* ModelController.m */,
+				1FF6A7E0160FE1A500730B8E /* BrushAppDelegate.h */,
+				1FF6A7E1160FE1A500730B8E /* BrushAppDelegate.m */,
+				1F64D84816321DB300AE22B7 /* BrushViewController.h */,
+				1F64D84916321DB300AE22B7 /* BrushViewController.m */,
 				1FF6A7F2160FE1A500730B8E /* MainStoryboard.storyboard */,
 				1FF6A7D8160FE1A500730B8E /* Supporting Files */,
 				1FBD055F16307748000961DD /* Resources */,
@@ -258,10 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF6A7DE160FE1A500730B8E /* main.m in Sources */,
-				1FF6A7E2160FE1A500730B8E /* AppDelegate.m in Sources */,
-				1FF6A7EB160FE1A500730B8E /* RootViewController.m in Sources */,
-				1FF6A7EE160FE1A500730B8E /* DataViewController.m in Sources */,
-				1FF6A7F1160FE1A500730B8E /* ModelController.m in Sources */,
+				1FF6A7E2160FE1A500730B8E /* BrushAppDelegate.m in Sources */,
+				1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

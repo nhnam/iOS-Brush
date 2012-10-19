@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TestFlight.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface BrushAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

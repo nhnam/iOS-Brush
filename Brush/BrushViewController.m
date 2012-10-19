@@ -1,18 +1,18 @@
 //
-//  DataViewController.m
-//  Brush
+//  BrushViewController.m
+//  temp
 //
-//  Created by Jeff Merola on 9/23/12.
+//  Created by Jeff Merola on 10/19/12.
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
-#import "DataViewController.h"
+#import "BrushViewController.h"
 
-@interface DataViewController ()
+@interface BrushViewController ()
 
 @end
 
-@implementation DataViewController
+@implementation BrushViewController
 
 - (void)viewDidLoad
 {
@@ -24,12 +24,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.dataLabel.text = [self.dataObject description];
 }
 
 @end

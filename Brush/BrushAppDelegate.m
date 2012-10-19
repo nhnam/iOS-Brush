@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BrushAppDelegate.h"
 
 #define TESTING 1
 
-@implementation AppDelegate
+@implementation BrushAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
