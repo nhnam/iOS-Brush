@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F64D84916321DB300AE22B7 /* BrushViewController.m */; };
+		1F64D85A163335D600AE22B7 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F64D859163335D600AE22B7 /* TutorialViewController.m */; };
+		1F64D864163353A700AE22B7 /* Blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F64D863163353A600AE22B7 /* Blank@2x.png */; };
 		1FBD0555163074ED000961DD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054B163074ED000961DD /* Icon-Small.png */; };
 		1FBD0556163074ED000961DD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054C163074ED000961DD /* Icon-Small@2x.png */; };
 		1FBD0557163074ED000961DD /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054D163074ED000961DD /* Icon-Small-50.png */; };
@@ -37,6 +39,9 @@
 /* Begin PBXFileReference section */
 		1F64D84816321DB300AE22B7 /* BrushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushViewController.h; sourceTree = "<group>"; };
 		1F64D84916321DB300AE22B7 /* BrushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushViewController.m; sourceTree = "<group>"; };
+		1F64D858163335D600AE22B7 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		1F64D859163335D600AE22B7 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		1F64D863163353A600AE22B7 /* Blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blank@2x.png"; sourceTree = "<group>"; };
 		1FBD054B163074ED000961DD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../Icon-Small.png"; sourceTree = "<group>"; };
 		1FBD054C163074ED000961DD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
 		1FBD054D163074ED000961DD /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		1FBD055F16307748000961DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1F64D863163353A600AE22B7 /* Blank@2x.png */,
 				1FCBFF4F1630AD6A0070839F /* play.png */,
 				1FCBFF501630AD6A0070839F /* settings.png */,
 				1FCBFF511630AD6A0070839F /* tutorial.png */,
@@ -147,6 +153,8 @@
 		1FF6A7D7160FE1A500730B8E /* Brush */ = {
 			isa = PBXGroup;
 			children = (
+				1F64D858163335D600AE22B7 /* TutorialViewController.h */,
+				1F64D859163335D600AE22B7 /* TutorialViewController.m */,
 				1FF6A7E0160FE1A500730B8E /* BrushAppDelegate.h */,
 				1FF6A7E1160FE1A500730B8E /* BrushAppDelegate.m */,
 				1F64D84816321DB300AE22B7 /* BrushViewController.h */,
@@ -237,6 +245,7 @@
 				1FCBFF521630AD6A0070839F /* play.png in Resources */,
 				1FCBFF531630AD6A0070839F /* settings.png in Resources */,
 				1FCBFF541630AD6A0070839F /* tutorial.png in Resources */,
+				1F64D864163353A700AE22B7 /* Blank@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +259,7 @@
 				1FF6A7DE160FE1A500730B8E /* main.m in Sources */,
 				1FF6A7E2160FE1A500730B8E /* BrushAppDelegate.m in Sources */,
 				1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */,
+				1F64D85A163335D600AE22B7 /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
