@@ -16,6 +16,13 @@
 		1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F64D84916321DB300AE22B7 /* BrushViewController.m */; };
 		1F64D864163353A700AE22B7 /* Blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F64D863163353A600AE22B7 /* Blank@2x.png */; };
 		1F64D8661633605000AE22B7 /* BackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F64D8651633605000AE22B7 /* BackArrow.png */; };
+		1F8D8D281634598A0077DFDA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D8D271634598A0077DFDA /* SettingsViewController.m */; };
+		1F8D8D2C1634761C0077DFDA /* gamecenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D291634761C0077DFDA /* gamecenter.png */; };
+		1F8D8D2D1634761C0077DFDA /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D2A1634761C0077DFDA /* music.png */; };
+		1F8D8D2E1634761C0077DFDA /* soundeffects.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D2B1634761C0077DFDA /* soundeffects.png */; };
+		1F8D8D30163479170077DFDA /* Sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D2F163479170077DFDA /* Sprite.png */; };
+		1F8D8D3216347FA10077DFDA /* soundeffects2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D3116347FA10077DFDA /* soundeffects2.png */; };
+		1F8D8D341634914B0077DFDA /* Sprite_rt.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D8D331634914B0077DFDA /* Sprite_rt.png */; };
 		1FBD0555163074ED000961DD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054B163074ED000961DD /* Icon-Small.png */; };
 		1FBD0556163074ED000961DD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054C163074ED000961DD /* Icon-Small@2x.png */; };
 		1FBD0557163074ED000961DD /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054D163074ED000961DD /* Icon-Small-50.png */; };
@@ -54,6 +61,14 @@
 		1F64D84916321DB300AE22B7 /* BrushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushViewController.m; sourceTree = "<group>"; };
 		1F64D863163353A600AE22B7 /* Blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blank@2x.png"; sourceTree = "<group>"; };
 		1F64D8651633605000AE22B7 /* BackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackArrow.png; sourceTree = "<group>"; };
+		1F8D8D261634598A0077DFDA /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1F8D8D271634598A0077DFDA /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1F8D8D291634761C0077DFDA /* gamecenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamecenter.png; sourceTree = "<group>"; };
+		1F8D8D2A1634761C0077DFDA /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
+		1F8D8D2B1634761C0077DFDA /* soundeffects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundeffects.png; sourceTree = "<group>"; };
+		1F8D8D2F163479170077DFDA /* Sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprite.png; sourceTree = "<group>"; };
+		1F8D8D3116347FA10077DFDA /* soundeffects2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundeffects2.png; sourceTree = "<group>"; };
+		1F8D8D331634914B0077DFDA /* Sprite_rt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sprite_rt.png; sourceTree = "<group>"; };
 		1FBD054B163074ED000961DD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../Icon-Small.png"; sourceTree = "<group>"; };
 		1FBD054C163074ED000961DD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
 		1FBD054D163074ED000961DD /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -104,6 +119,12 @@
 		1FBD055F16307748000961DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1F8D8D3116347FA10077DFDA /* soundeffects2.png */,
+				1F8D8D2F163479170077DFDA /* Sprite.png */,
+				1F8D8D331634914B0077DFDA /* Sprite_rt.png */,
+				1F8D8D291634761C0077DFDA /* gamecenter.png */,
+				1F8D8D2A1634761C0077DFDA /* music.png */,
+				1F8D8D2B1634761C0077DFDA /* soundeffects.png */,
 				1F3388F616338F0500742C4A /* tutorial5.png */,
 				1F3388F716338F0500742C4A /* tutorial4.png */,
 				1F3388F816338F0500742C4A /* tutorial3.png */,
@@ -178,6 +199,8 @@
 				1F64D84816321DB300AE22B7 /* BrushViewController.h */,
 				1F64D84916321DB300AE22B7 /* BrushViewController.m */,
 				1FF6A7F2160FE1A500730B8E /* MainStoryboard.storyboard */,
+				1F8D8D261634598A0077DFDA /* SettingsViewController.h */,
+				1F8D8D271634598A0077DFDA /* SettingsViewController.m */,
 				1FF6A7D8160FE1A500730B8E /* Supporting Files */,
 				1FBD055F16307748000961DD /* Resources */,
 			);
@@ -270,6 +293,12 @@
 				1F3388FD16338F0500742C4A /* tutorial3.png in Resources */,
 				1F3388FE16338F0500742C4A /* tutorial2.png in Resources */,
 				1F3388FF16338F0500742C4A /* tutorial1.png in Resources */,
+				1F8D8D2C1634761C0077DFDA /* gamecenter.png in Resources */,
+				1F8D8D2D1634761C0077DFDA /* music.png in Resources */,
+				1F8D8D2E1634761C0077DFDA /* soundeffects.png in Resources */,
+				1F8D8D30163479170077DFDA /* Sprite.png in Resources */,
+				1F8D8D3216347FA10077DFDA /* soundeffects2.png in Resources */,
+				1F8D8D341634914B0077DFDA /* Sprite_rt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +313,7 @@
 				1FF6A7E2160FE1A500730B8E /* BrushAppDelegate.m in Sources */,
 				1F64D84A16321DB300AE22B7 /* BrushViewController.m in Sources */,
 				1F3389151633A30B00742C4A /* TutorialViewController.m in Sources */,
+				1F8D8D281634598A0077DFDA /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

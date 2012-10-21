@@ -102,6 +102,7 @@
                        [UIImage imageNamed:@"tutorial3.png"],
                        [UIImage imageNamed:@"tutorial4.png"],
                        [UIImage imageNamed:@"tutorial5.png"],
+                       [UIImage imageNamed:@"Sprite.png"],
                        nil];
     
     NSInteger pageCount = self.pageImages.count;
