@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutorialViewController : UIViewController
+@interface TutorialViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 - (IBAction)returnToMainMenu:(UIButton *)sender;
 
