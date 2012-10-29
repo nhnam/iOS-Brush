@@ -34,7 +34,6 @@
 - (void)loadVisiblePages
 {
     CGFloat pageWidth = self.scrollView.frame.size.width;
-    NSLog(@"scrollView width: %f", pageWidth);
     NSInteger page = (NSInteger)floor((self.scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
     
     self.pageControl.currentPage = page;
