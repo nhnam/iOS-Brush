@@ -19,6 +19,15 @@
 #ifdef TESTING
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
+    
+    // Initialize cocos2d director
+    CCDirector *director = (CCDirector *)[CCDirector sharedDirector];
+    director.wantsFullScreenLayout = NO;
+    director.projection = kCCDirectorProjection2D;
+    director.animationInterval = 1.0 / 60.0;
+    director.displayStats = YES;
+    [director enableRetinaDisplay:YES];
+    
     return YES;
 }
 

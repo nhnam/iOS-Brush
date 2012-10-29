@@ -26,7 +26,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kKi-qt-gHh" kind="push" id="AMG-uR-HKn"/>
+                                    <segue destination="kKi-qt-gHh" kind="push" identifier="Level Selection Screen Segue" id="AMG-uR-HKn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aNx-gR-1zj">
@@ -40,7 +40,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1iD-tM-hBf" kind="popover" popoverAnchorView="aNx-gR-1zj" id="KQ4-8U-6H3">
+                                    <segue destination="1iD-tM-hBf" kind="popover" identifier="Settings Screen Segue" popoverAnchorView="aNx-gR-1zj" id="KQ4-8U-6H3">
                                         <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                     </segue>
                                 </connections>
@@ -56,7 +56,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UMM-7k-Yjy" kind="push" id="zT9-pS-qbQ"/>
+                                    <segue destination="UMM-7k-Yjy" kind="push" identifier="Tutorial Screen Segue" id="zT9-pS-qbQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,52 +114,23 @@
             </objects>
             <point key="canvasLocation" x="-291" y="148"/>
         </scene>
-        <!--Level Select View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="oLT-bo-XSd">
             <objects>
-                <viewController id="kKi-qt-gHh" customClass="LevelSelectViewController" sceneMemberID="viewController">
+                <viewController id="kKi-qt-gHh" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YMr-Dh-MJu">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" image="Blank@2x.png" id="dYT-kx-zlm">
+                            <view contentMode="scaleToFill" id="bi1-cp-B9i" customClass="CCGLView">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hId-Lt-5UK">
-                                <rect key="frame" x="55" y="55" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="BackArrow.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="returnToMainMenu:" destination="kKi-qt-gHh" eventType="touchUpInside" id="lH9-rp-efP"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lr1-vN-RMQ">
-                                <rect key="frame" x="37" y="164" width="695" height="680"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kKi-qt-gHh" id="pTG-fn-gw4"/>
-                                </connections>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="3Zc-PK-HQd">
-                                <rect key="frame" x="365" y="900" width="38" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QMk-ro-QpV"/>
-                    <connections>
-                        <outlet property="pageControl" destination="3Zc-PK-HQd" id="CaH-BK-fRy"/>
-                        <outlet property="scrollView" destination="lr1-vN-RMQ" id="Tw8-uj-s39"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgY-mt-Hh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,30 +218,6 @@
         <image name="soundeffects.png" width="360" height="100"/>
         <image name="tutorial.png" width="700" height="230"/>
     </resources>
-    <classes>
-        <class className="BrushViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrushViewController.h"/>
-        </class>
-        <class className="LevelSelectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LevelSelectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="returnToMainMenu:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="TutorialViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="returnToMainMenu:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
