@@ -131,6 +131,13 @@
 		1FB9C7B716401DED006DFC87 /* BrushData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7B316401DED006DFC87 /* BrushData.m */; };
 		1FB9C7B816401DED006DFC87 /* BrushData.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1FB9C7B416401DED006DFC87 /* BrushData.xml */; };
 		1FB9C7B916401DED006DFC87 /* BrushDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7B616401DED006DFC87 /* BrushDataParser.m */; };
+		1FB9C7CA1640382C006DFC87 /* ChapterSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7C31640382C006DFC87 /* ChapterSelect.m */; };
+		1FB9C7CB1640382C006DFC87 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7C51640382C006DFC87 /* GameScene.m */; };
+		1FB9C7CC1640382C006DFC87 /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7C71640382C006DFC87 /* LevelSelect.m */; };
+		1FB9C7CD1640382C006DFC87 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7C91640382C006DFC87 /* SceneManager.m */; };
+		1FB9C7D616406F9B006DFC87 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9C7D516406F9B006DFC87 /* CCScrollLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FB9C7D9164074D3006DFC87 /* StickyNote-iPad-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB9C7D7164074D3006DFC87 /* StickyNote-iPad-hd.png */; };
+		1FB9C7DA164074D3006DFC87 /* StickyNote-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB9C7D8164074D3006DFC87 /* StickyNote-iPad.png */; };
 		1FBD0555163074ED000961DD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054B163074ED000961DD /* Icon-Small.png */; };
 		1FBD0556163074ED000961DD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054C163074ED000961DD /* Icon-Small@2x.png */; };
 		1FBD0557163074ED000961DD /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FBD054D163074ED000961DD /* Icon-Small-50.png */; };
@@ -438,6 +445,18 @@
 		1FB9C7B416401DED006DFC87 /* BrushData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BrushData.xml; sourceTree = "<group>"; };
 		1FB9C7B516401DED006DFC87 /* BrushDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushDataParser.h; sourceTree = "<group>"; };
 		1FB9C7B616401DED006DFC87 /* BrushDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushDataParser.m; sourceTree = "<group>"; };
+		1FB9C7C21640382C006DFC87 /* ChapterSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterSelect.h; sourceTree = "<group>"; };
+		1FB9C7C31640382C006DFC87 /* ChapterSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterSelect.m; sourceTree = "<group>"; };
+		1FB9C7C41640382C006DFC87 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		1FB9C7C51640382C006DFC87 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		1FB9C7C61640382C006DFC87 /* LevelSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelect.h; sourceTree = "<group>"; };
+		1FB9C7C71640382C006DFC87 /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelect.m; sourceTree = "<group>"; };
+		1FB9C7C81640382C006DFC87 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		1FB9C7C91640382C006DFC87 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
+		1FB9C7D416406F9B006DFC87 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		1FB9C7D516406F9B006DFC87 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
+		1FB9C7D7164074D3006DFC87 /* StickyNote-iPad-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StickyNote-iPad-hd.png"; sourceTree = "<group>"; };
+		1FB9C7D8164074D3006DFC87 /* StickyNote-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StickyNote-iPad.png"; sourceTree = "<group>"; };
 		1FBD054B163074ED000961DD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../Icon-Small.png"; sourceTree = "<group>"; };
 		1FBD054C163074ED000961DD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
 		1FBD054D163074ED000961DD /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -527,6 +546,7 @@
 		1F4595B2163E2CCA003E9284 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9C7D316406F8E006DFC87 /* cocos2d-extensions */,
 				1F4595B3163E2CCA003E9284 /* cocos2d */,
 				1F459676163E2CCA003E9284 /* CocosDenshion */,
 				1F459680163E2CCA003E9284 /* kazmath */,
@@ -889,6 +909,8 @@
 		1F8F8298163F055E00267C2A /* Menu Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9C7D7164074D3006DFC87 /* StickyNote-iPad-hd.png */,
+				1FB9C7D8164074D3006DFC87 /* StickyNote-iPad.png */,
 				1F64D8651633605000AE22B7 /* BackArrow.png */,
 				1FCBFF4F1630AD6A0070839F /* play.png */,
 				1FCBFF501630AD6A0070839F /* settings.png */,
@@ -923,13 +945,63 @@
 			children = (
 				1FB9C7AA16401AA0006DFC87 /* GDataXMLNode.h */,
 				1FB9C7AB16401AA0006DFC87 /* GDataXMLNode.m */,
+				1FB9C7BF1640373D006DFC87 /* Chapters */,
+				1FB9C7C016403761006DFC87 /* Levels */,
+				1FB9C7BE1640372B006DFC87 /* GameData */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		1FB9C7BE1640372B006DFC87 /* GameData */ = {
+			isa = PBXGroup;
+			children = (
 				1FB9C7B216401DED006DFC87 /* BrushData.h */,
 				1FB9C7B316401DED006DFC87 /* BrushData.m */,
 				1FB9C7B416401DED006DFC87 /* BrushData.xml */,
 				1FB9C7B516401DED006DFC87 /* BrushDataParser.h */,
 				1FB9C7B616401DED006DFC87 /* BrushDataParser.m */,
 			);
-			name = Data;
+			name = GameData;
+			sourceTree = "<group>";
+		};
+		1FB9C7BF1640373D006DFC87 /* Chapters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chapters;
+			sourceTree = "<group>";
+		};
+		1FB9C7C016403761006DFC87 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
+		1FB9C7C1164037B3006DFC87 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1F8F829F163F09F500267C2A /* HelloWorldLayer.h */,
+				1F8F82A0163F09F500267C2A /* HelloWorldLayer.m */,
+				1FB9C7C21640382C006DFC87 /* ChapterSelect.h */,
+				1FB9C7C31640382C006DFC87 /* ChapterSelect.m */,
+				1FB9C7C41640382C006DFC87 /* GameScene.h */,
+				1FB9C7C51640382C006DFC87 /* GameScene.m */,
+				1FB9C7C61640382C006DFC87 /* LevelSelect.h */,
+				1FB9C7C71640382C006DFC87 /* LevelSelect.m */,
+				1FB9C7C81640382C006DFC87 /* SceneManager.h */,
+				1FB9C7C91640382C006DFC87 /* SceneManager.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		1FB9C7D316406F8E006DFC87 /* cocos2d-extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FB9C7D416406F9B006DFC87 /* CCScrollLayer.h */,
+				1FB9C7D516406F9B006DFC87 /* CCScrollLayer.m */,
+			);
+			name = "cocos2d-extensions";
 			sourceTree = "<group>";
 		};
 		1FBD055F16307748000961DD /* Resources */ = {
@@ -997,8 +1069,7 @@
 		1FF6A7D7160FE1A500730B8E /* Brush */ = {
 			isa = PBXGroup;
 			children = (
-				1F8F829F163F09F500267C2A /* HelloWorldLayer.h */,
-				1F8F82A0163F09F500267C2A /* HelloWorldLayer.m */,
+				1FB9C7C1164037B3006DFC87 /* Scenes */,
 				1FF6A7E0160FE1A500730B8E /* BrushAppDelegate.h */,
 				1FF6A7E1160FE1A500730B8E /* BrushAppDelegate.m */,
 				1F3389131633A30B00742C4A /* TutorialViewController.h */,
@@ -1128,6 +1199,8 @@
 				1F8D8D37163493360077DFDA /* musicCenter.png in Resources */,
 				1F8F82A9163F56F000267C2A /* blues.mp3 in Resources */,
 				1FB9C7B816401DED006DFC87 /* BrushData.xml in Resources */,
+				1FB9C7D9164074D3006DFC87 /* StickyNote-iPad-hd.png in Resources */,
+				1FB9C7DA164074D3006DFC87 /* StickyNote-iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1328,11 @@
 				1FB9C7AC16401AA0006DFC87 /* GDataXMLNode.m in Sources */,
 				1FB9C7B716401DED006DFC87 /* BrushData.m in Sources */,
 				1FB9C7B916401DED006DFC87 /* BrushDataParser.m in Sources */,
+				1FB9C7CA1640382C006DFC87 /* ChapterSelect.m in Sources */,
+				1FB9C7CB1640382C006DFC87 /* GameScene.m in Sources */,
+				1FB9C7CC1640382C006DFC87 /* LevelSelect.m in Sources */,
+				1FB9C7CD1640382C006DFC87 /* SceneManager.m in Sources */,
+				1FB9C7D616406F9B006DFC87 /* CCScrollLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

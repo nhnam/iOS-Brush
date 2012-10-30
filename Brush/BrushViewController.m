@@ -8,6 +8,7 @@
 
 #import "BrushViewController.h"
 #import "HelloWorldLayer.h"
+#import "SceneManager.h"
 #import "SimpleAudioEngine.h"
 
 @interface BrushViewController ()
@@ -31,7 +32,7 @@
                     break;
                 }
             }
-            [director runWithScene:[HelloWorldLayer scene]];
+            [SceneManager goChapterSelect];
         }
         [director startAnimation];
     } else if ([segue.identifier isEqualToString:@"Settings Screen Segue"]) {
