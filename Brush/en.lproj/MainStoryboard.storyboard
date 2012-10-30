@@ -100,7 +100,7 @@
                                 <rect key="frame" x="217" y="41" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="L41-9F-xRN">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="L41-9F-xRN">
                                 <rect key="frame" x="217" y="214" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
@@ -109,6 +109,11 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="314" height="280"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="gameCenterSetting" destination="L41-9F-xRN" id="fA2-UM-9sg"/>
+                        <outlet property="musicSetting" destination="enM-f1-CfL" id="peK-b6-c4c"/>
+                        <outlet property="soundEffectsSetting" destination="QLg-wd-zPj" id="4OE-GC-xtR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5D-XT-p70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,6 +223,33 @@
         <image name="soundeffects.png" width="360" height="100"/>
         <image name="tutorial.png" width="700" height="230"/>
     </resources>
+    <classes>
+        <class className="BrushViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrushViewController.h"/>
+        </class>
+        <class className="CCGLView" superclassName="NSOpenGLView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCGLView.h"/>
+        </class>
+        <class className="GameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameCenterSetting" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="musicSetting" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="soundEffectsSetting" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="TutorialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToMainMenu:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

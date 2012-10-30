@@ -27,7 +27,7 @@
 {
 	if ((self = [super init]))
 	{
-		[self addManyLabels];
+		/*[self addManyLabels];
 		
 		CCLabelTTF* label = [CCLabelTTF labelWithString:@"Hello Cocos2D!"
 											   fontName:@"Marker Felt"
@@ -41,7 +41,7 @@
 		
 		glClearColor(CCRANDOM_0_1() * 0.5f, CCRANDOM_0_1() * 0.5f, CCRANDOM_0_1() * 0.5f, 1.0f);
 		id rotate = [CCRotateBy actionWithDuration:600 angle:CCRANDOM_0_1() * 360 * 100];
-		[label runAction:rotate];
+		[label runAction:rotate];*/
 	}
 	return self;
 }

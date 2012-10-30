@@ -10,4 +10,8 @@
 
 @interface SettingsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISwitch *musicSetting;
+@property (weak, nonatomic) IBOutlet UISwitch *soundEffectsSetting;
+@property (weak, nonatomic) IBOutlet UISwitch *gameCenterSetting;
+
 @end

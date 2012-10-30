@@ -8,6 +8,7 @@
 
 #import "BrushViewController.h"
 #import "HelloWorldLayer.h"
+#import "SimpleAudioEngine.h"
 
 @interface BrushViewController ()
 
@@ -34,7 +35,7 @@
         }
         [director startAnimation];
     } else if ([segue.identifier isEqualToString:@"Settings Screen Segue"]) {
-        //obtain settings values from NSUserDefaults
+        
     }
 }
 
@@ -42,6 +43,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults integerForKey:@"musicSetting"]) [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
 }
 
 - (void)didReceiveMemoryWarning
