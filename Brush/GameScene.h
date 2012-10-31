@@ -8,6 +8,4 @@
 
 @interface GameScene : CCLayer {}
 
-@property (nonatomic, assign) BOOL iPad;
-
 @end

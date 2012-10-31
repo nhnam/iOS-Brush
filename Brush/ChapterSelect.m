@@ -6,6 +6,9 @@
 #import "BrushData.h"
 #import "BrushDataParser.h"
 #import "CCScrollLayer.h"
+#import "Chapter.h"
+#import "Chapters.h"
+#import "ChapterParser.h"
 
 @implementation ChapterSelect
 
@@ -16,10 +19,9 @@
 
 - (void)onSelectChapter:(CCMenuItemImage *)sender
 {
-    //CCLOG(@"writing the selected stage to BrushData.xml as %i", sender.tag);
-    //BrushData *brushData = [BrushDataParser loadData];
-    //[brushData setSelectedChapter:sender.tag];
-    //[BrushDataParser saveData:brushData];
+    BrushData *brushData = [BrushDataParser loadData];
+    [brushData setSelectedChapter:sender.tag];
+    [BrushDataParser saveData:brushData];
     [SceneManager goLevelSelect];
 }
 
@@ -68,16 +70,18 @@
         
         NSMutableArray *layers = [NSMutableArray new];
         
-        CCLayer *chapterOne = [self layerWithChapterName:@"One" chapterNumber:1 screenSize:screenSize];
-        CCLayer *chapterTwo = [self layerWithChapterName:@"Two" chapterNumber:2 screenSize:screenSize];
+        Chapters *chapters = [ChapterParser loadData];
         
-        [layers addObject:chapterOne];
-        [layers addObject:chapterTwo];
+        for (Chapter *chapter in chapters.chapters) {
+            CCLayer *layer = [self layerWithChapterName:chapter.name chapterNumber:chapter.number screenSize:screenSize];
+            [layers addObject:layer];
+        }
         
         CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers widthOffset:230];
         
-        //load selectedPage from selectedStage
-        //[scroller selectPage:(BrushData.selectedStage - 1)];
+        BrushData *brushData = [BrushDataParser loadData];
+        [scroller selectPage:(brushData.selectedChapter - 1)];
+        
         [self addChild:scroller];
         [self addBackButton];
     }

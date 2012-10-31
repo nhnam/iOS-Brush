@@ -8,6 +8,4 @@
 
 @interface LevelSelect : CCLayer {}
 
-@property (nonatomic, assign) BOOL iPad;
-
 @end
