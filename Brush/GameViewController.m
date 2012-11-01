@@ -7,7 +7,6 @@
 //
 
 #import "GameViewController.h"
-#import "HelloWorldLayer.h"
 
 @interface GameViewController ()
 

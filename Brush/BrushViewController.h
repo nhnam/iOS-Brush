@@ -1,6 +1,6 @@
 //
 //  BrushViewController.h
-//  temp
+//  Brush
 //
 //  Created by Jeff Merola on 10/19/12.
 //  Copyright (c) 2012 SDD_Team. All rights reserved.

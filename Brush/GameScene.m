@@ -1,3 +1,13 @@
+//
+//  GameScene.m
+//  Brush
+//
+//  Created by Jeff Merola on 10/28/12.
+//  Copyright (c) 2012 SDD_Team. All rights reserved.
+//
+
+// Game scene ( note: not yet finished )
+
 #import "GameScene.h"
 #import "BrushData.h"
 #import "BrushDataParser.h"

@@ -6,9 +6,12 @@
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
+// Controller for the tutorial page.
+
 #import "TutorialViewController.h"
 
 @interface TutorialViewController ()
+// Private properties and methods:
 @property (nonatomic, strong) NSArray *pageImages;
 @property (nonatomic, strong) NSMutableArray *pageViews;
 
@@ -25,12 +28,13 @@
 @synthesize pageImages = _pageImages;
 @synthesize pageViews = _pageViews;
 
-// Pops the newest View Controller from the Navigation Stack
+// Pops the newest View Controller (TutorialViewController) from the Navigation Stack
 - (IBAction)returnToMainMenu:(UIButton *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+// Loads the tutorial pages that are visible
 - (void)loadVisiblePages
 {
     CGFloat pageWidth = self.scrollView.frame.size.width;
@@ -55,6 +59,7 @@
     }
 }
 
+// Loads an individual page
 - (void)loadPage:(NSInteger)page
 {
     if (page < 0 || page >= self.pageImages.count) {
@@ -77,6 +82,7 @@
     }
 }
 
+// Removes an individual page from memory
 - (void)purgePage:(NSInteger)page
 {
     if (page < 0 || page >= self.pageImages.count) {
@@ -91,6 +97,8 @@
     }
 }
 
+// When the tutorials screen is loaded, pull in the images
+//  for the UIScrollView to display and set initial properties
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -115,6 +123,10 @@
     }
 }
 
+// When the view is about to appear, set the UIScrollView's
+//  contentSize property.  Cannot be done in ViewDidLoad
+//   because the view's outlets are not connected in that
+//    method.
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -135,6 +147,7 @@
     self.pageViews = nil;
 }
 
+// When the user scrolls the view, new pages need to be loaded.
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self loadVisiblePages];

@@ -1,3 +1,13 @@
+//
+//  LevelParser.m
+//  Brush
+//
+//  Created by Jeff Merola on 10/30/12.
+//  Copyright (c) 2012 SDD_Team. All rights reserved.
+//
+
+// XML Parser used to load/save the Level information from Levels-ChapterX.xml
+
 #import "LevelParser.h"
 #import "Levels.h"
 #import "Level.h"
@@ -5,6 +15,8 @@
 
 @implementation LevelParser
 
+// Gets the file path to the xml file using string manipulation.
+// Opens the file for read/write, or creates/copies file into correct directory.
 + (NSString *)dataFilePath:(BOOL)forSave ForChapter:(int)chapter
 {
 
@@ -23,6 +35,7 @@
     }    
 }
 
+// Loads the level data using GDataXML.
 + (Levels *)loadLevelsForChapter:(int)chapter
 {
     NSString *name;
@@ -41,7 +54,8 @@
     
     NSArray *dataArray = [doc nodesForXPath:@"//Levels/Level" error:nil];
     NSLog(@"Array Contents = %@", dataArray);
-        
+    
+    // Implementation for each node in the XML file
     for (GDataXMLElement *element in dataArray) {
         
         NSArray *nameArray = [element elementsForName:@"Name"];
@@ -50,27 +64,31 @@
         NSArray *starsArray = [element elementsForName:@"Stars"];
         NSArray *levelDataArray = [element elementsForName:@"Data"];
         
-
+        // Gets the name as a string
         if (nameArray.count > 0) {
             GDataXMLElement *nameElement = (GDataXMLElement *) [nameArray objectAtIndex:0];
             name = [nameElement stringValue];
         }
 
+        // Gets the number as an int
         if (numberArray.count > 0) {
             GDataXMLElement *numberElement = (GDataXMLElement *) [numberArray objectAtIndex:0];
             number = [[numberElement stringValue] intValue];
         }
         
+        // Gets the unlocked status as a bool
         if (unlockedArray.count > 0) {
             GDataXMLElement *unlockedElement = (GDataXMLElement *) [unlockedArray objectAtIndex:0];
             unlocked = [[unlockedElement stringValue] boolValue];
         }
 
+        // Gets the number of stars as an int
         if (starsArray.count > 0) {
             GDataXMLElement *starsElement = (GDataXMLElement *) [starsArray objectAtIndex:0];
             stars = [[starsElement stringValue] intValue];
         }
         
+        // Gets the level data as a string
         if (levelDataArray.count > 0) {
             GDataXMLElement *levelDataElement = (GDataXMLElement *) [levelDataArray objectAtIndex:0];
             data = [levelDataElement stringValue];
@@ -82,10 +100,12 @@
     return levels;
 }
 
+// Saves the level data using GDataXML.
 + (void)saveData:(Levels *)saveData ForChapter:(int)chapter
 {
     GDataXMLElement *levelsElement = [GDataXMLNode elementWithName:@"Levels"];
     
+    // For each level, build the new XML element line by line.
     for (Level *level in saveData.levels) {
         GDataXMLElement *levelElement = [GDataXMLNode elementWithName:@"Level"];
         GDataXMLElement *nameElement = [GDataXMLNode elementWithName:@"Name" stringValue:level.name];

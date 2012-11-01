@@ -1,13 +1,14 @@
 //
 //  BrushViewController.m
-//  temp
+//  Brush
 //
 //  Created by Jeff Merola on 10/19/12.
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
+//Controller for the Main Menu
+
 #import "BrushViewController.h"
-#import "HelloWorldLayer.h"
 #import "SceneManager.h"
 #import "SimpleAudioEngine.h"
 
@@ -17,9 +18,12 @@
 
 @implementation BrushViewController
 
+// When a segue is about to occur, this method is called.
+// Based on which segue is going to happen, do different things.
+// On the level selection segue: retreive the CCDirector and link
+//   it to the CCGLView, and then begin animation.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     if ([segue.identifier isEqualToString:@"Level Selection Screen Segue"]) {
         //start up cocos2d
         CCDirectorIOS *director = (CCDirectorIOS *)[CCDirector sharedDirector];
@@ -40,10 +44,14 @@
     }
 }
 
+// When the app is opened and the initial screen (Main Menu)
+//  loads, this method is called.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // Begin background music if it is turned on.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults integerForKey:@"musicSetting"]) [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
 }

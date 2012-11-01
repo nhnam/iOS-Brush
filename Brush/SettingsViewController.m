@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
+// Controller for the settings popover screen
+
 #import "SettingsViewController.h"
 #import "SimpleAudioEngine.h"
 
@@ -25,6 +27,8 @@
 	// Do any additional setup after loading the view.
 }
 
+// On dismissal of the settings popover, this is called.
+// Save the individual settings to NSUserDefaults
 - (void)viewWillDisappear:(BOOL)animated
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -63,6 +67,9 @@
     [defaults synchronize];
 }
 
+// When the settings popover is going to appear,
+//  retrieve the user's preferences and set the
+//   settings switches to the correct position.
 - (void)viewWillAppear:(BOOL)animated
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

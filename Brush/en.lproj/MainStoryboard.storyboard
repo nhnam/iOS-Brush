@@ -227,7 +227,7 @@
         <class className="BrushViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrushViewController.h"/>
         </class>
-        <class className="CCGLView" superclassName="NSOpenGLView">
+        <class className="CCGLView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CCGLView.h"/>
         </class>
         <class className="GameViewController" superclassName="UIViewController">

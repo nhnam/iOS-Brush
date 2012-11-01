@@ -1,3 +1,13 @@
+//
+//  Chapter.m
+//  Brush
+//
+//  Created by Jeff Merola on 10/30/12.
+//  Copyright (c) 2012 SDD_Team. All rights reserved.
+//
+
+// Class to hold the needed data for each individual chapter
+
 #import "Chapter.h"
 
 @implementation Chapter
