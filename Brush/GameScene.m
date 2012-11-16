@@ -38,7 +38,7 @@
 - (id)init {
     
     if( (self=[super init])) {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;  
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
         
         int fontSize = screenSize.height / 25;
         
@@ -61,7 +61,7 @@
                 [self addChild:label z:0];
             }
         }
-        [self addBackButton];   
+        [self addBackButton];
     }
     return self;
 }
