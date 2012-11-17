@@ -12,26 +12,34 @@
 
 @interface SceneManager ()
 
-+(void) go: (CCLayer *)layer;
-+(CCScene *) wrap: (CCLayer *)layer;
++ (void)go: (CCLayer *)layer;
++ (CCScene *)wrap: (CCLayer *)layer;
 
 @end
 
 @implementation SceneManager
 
 // Goes to the chapter scene
-+(void) goChapterSelect {
++ (void)goChapterSelect
+{
     [SceneManager go:[ChapterSelect node]];
 }
 
 // Goes to the level scene
-+(void) goLevelSelect {
++ (void)goLevelSelect
+{
     [SceneManager go:[LevelSelect node]];
 }
 
 // Goes to the game scene
-+(void) goGameScene {
++ (void)goGameScene
+{
     [SceneManager go:[GameScene node]];
+}
+
++ (void)showWinScene
+{
+    
 }
 
 // Goes to the specified layer's scene.
@@ -40,7 +48,8 @@
 //   it will call runWithScene: which should
 //    not be used to replace an already running
 //     scene.
-+(void) go: (CCLayer *)layer {
++ (void)go:(CCLayer *)layer
+{
     CCDirector *director = [CCDirector sharedDirector];
     CCScene *newScene = [SceneManager wrap:layer];
     if ([director runningScene]) {
@@ -50,8 +59,16 @@
     }
 }
 
++ (void)push:(CCLayer *)layer
+{
+    CCDirector *director = [CCDirector sharedDirector];
+    CCScene *newScene = [SceneManager wrap:layer];
+    [director pushScene:newScene];
+}
+
 // Wraps the given layer in a new scene.
-+(CCScene *) wrap: (CCLayer *)layer {
++ (CCScene *)wrap:(CCLayer *)layer
+{
     CCScene *newScene = [CCScene node];
     [newScene addChild: layer];
     return newScene;

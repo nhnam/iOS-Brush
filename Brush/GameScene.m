@@ -37,13 +37,41 @@
     CCMenu *back = [CCMenu menuWithItems: goBack, nil];
 
     back.position = ccp(64, 64);
-        
+    
     [self addChild: back];
 }
 
-- (void)movePlayerToTile:(Tile *)tile
+- (void)addScoreLabel
 {
-    //animations to move to tiles position
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:@"Moves: 0" fontName:@"Arial" fontSize:36];
+    scoreLabel.position = CGPointMake(screenSize.width/2,screenSize.height);
+    scoreLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
+    scoreLabel.color = ccc3(175, 207, 219);
+    [self addChild:scoreLabel z:1 tag:10];
+}
+
+- (void)addInstructionsForLevel:(NSString *)data
+{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CCSprite *sprite;
+    
+    if ([data rangeOfString:@"3"].location != NSNotFound) {
+        sprite = [CCSprite spriteWithFile:@"instructions3-iPad.png"];
+    } else if ([data rangeOfString:@"2"].location != NSNotFound) {
+        sprite = [CCSprite spriteWithFile:@"instructions2-iPad.png"];
+    } else {
+        sprite = [CCSprite spriteWithFile:@"instructions1-iPad.png"];
+    }
+    
+//  sprite.anchorPoint = CGPointMake(0.5f, 0.5f);
+    sprite.position = CGPointMake(screenSize.width / 2, kStartY / 2);
+    [self addChild:sprite z:1 tag:9];
+}
+
+- (void)animatePlayerToTile:(Tile *)tile
+{
+    //animations to move player to tiles position
     float duration = 0.5;
     CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:[tile pixPostion]];
     [self.player runAction:move];
@@ -51,12 +79,18 @@
 
 - (void)moveToTile:(Tile *)tile
 {
-    NSLog(@"moving to tile: %d, %d",tile.x, tile.y);
-    [self movePlayerToTile:tile];
-    [tile changeColor];
-    self.currentTile = tile;
-    if ([self levelComplete]) {
-        //call win screen
+    if (tile.requiredColor == 1 || tile.requiredColor == 2 || tile.requiredColor == 3) {
+        NSLog(@"moving to tile: %d, %d",tile.x, tile.y);
+        [self animatePlayerToTile:tile];
+        [tile changeColor];
+        self.currentTile = tile;
+        self.numberOfMoves++;
+        CCLabelTTF *scoreLabel = (CCLabelTTF *)[self getChildByTag:10];
+        [scoreLabel setString:[NSString stringWithFormat:@"Moves: %d",self.numberOfMoves]];
+        if ([self levelComplete]) {
+            NSLog(@"You win!");
+            //call win screen
+        }
     }
 }
 
@@ -67,7 +101,8 @@
     for (int y = 0; y < self.box.size.height; y++) {
         for (int x = 0; x < self.box.size.width; x++) {
             Tile *tile = [[self.box.content objectAtIndex:y] objectAtIndex:x];
-            if (tile.currentColor != tile.requiredColor) {
+            if (tile.currentColor != tile.requiredColor && tile.requiredColor != 9) {
+                NSLog(@"%d,%d  %d,%d",x,y,tile.requiredColor, tile.currentColor);
                 complete = NO;
             }
         }
@@ -83,7 +118,16 @@
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     if (self.currentTile.x == (location.x - kStartX)/kTileSize && self.currentTile.y == (location.y - kStartY)/kTileSize) {
+        NSLog(@"Current Tile now nil.");
         self.currentTile = nil;
+        return;
+    }
+    
+    if (location.y < (kStartY) || location.y > (kStartY + (kTileSize * self.box.size.height))) {
+		return;
+	}
+    
+    if (location.x < (kStartX) || location.x > (kStartX + (kTileSize * self.box.size.width)))  {
         return;
     }
     
@@ -99,9 +143,9 @@
     }
 }
 
-- (id)init {
-    
-    if( (self=[super init])) {        
+- (id)init
+{    
+    if( (self=[super init])) {
         int gameBoardWidth = 0;
         int gameBoardHeight = 0;
         
@@ -133,6 +177,10 @@
                     gameBoardWidth = 9;
                 } else {
                     NSLog(@"ERROR: Incorrect level specifications!");
+                    NSLog(@"Using default level...");
+                    data = @"1111111111111111111111111";
+                    gameBoardHeight = 5;
+                    gameBoardWidth = 5;
                 }
                 break;
             }
@@ -144,13 +192,15 @@
         [self.box check];
         
         self.currentTile = [self.box tileAtX:0 Y:0];
-        self.player = [CCSprite spriteWithFile:@"Sprite-iPad-hd.png"];
+        self.player = [CCSprite spriteWithFile:@"sprite-left-iPad.png"];
         self.player.position = [self.currentTile pixPostion];
         [self.box.layer addChild:self.player z:4];
         
         self.numberOfMoves = 0;
         
         [self addBackButton];
+        [self addScoreLabel];
+        [self addInstructionsForLevel:data];
         
         self.isTouchEnabled = YES;
     }

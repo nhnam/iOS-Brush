@@ -31,7 +31,7 @@
     for (int y = 0; y < self.size.height; y++) {
         NSMutableArray *rowContent = [NSMutableArray arrayWithCapacity:self.size.width];
         for (int x = 0; x < self.size.width; x++) {
-            Tile *tile = [[Tile alloc] initWithX:x Y:y Color:[[colors substringWithRange:NSMakeRange(x+x*y, 1)] intValue]];
+            Tile *tile = [[Tile alloc] initWithX:x Y:y Color:[[colors substringWithRange:NSMakeRange((x+y*self.size.width), 1)] intValue]];
             [rowContent addObject:tile];
             [self.readyToRemoveTiles addObject:tile];
         }
@@ -77,7 +77,7 @@
                 tileSprite = [CCSprite spriteWithFile:@"grey-red-iPad.png"];
             } else if (tile.requiredColor == 3) {
                 tileSprite = [CCSprite spriteWithFile:@"grey-green-iPad.png"];
-            } else {
+            } else if (tile.requiredColor == 9) {
                 tileSprite = [CCSprite spriteWithFile:@"grey-x-iPad.png"];
             }
             

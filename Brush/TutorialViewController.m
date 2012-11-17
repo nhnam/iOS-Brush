@@ -28,9 +28,17 @@
 @synthesize pageImages = _pageImages;
 @synthesize pageViews = _pageViews;
 
+- (void)test
+{
+    NSString *data = @"alphy";
+    NSString *loc = [data substringWithRange:NSMakeRange(1, 1)];
+    NSLog(@"%@",loc);
+}
+
 // Pops the newest View Controller (TutorialViewController) from the Navigation Stack
 - (IBAction)returnToMainMenu:(UIButton *)sender
 {
+    [self test];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

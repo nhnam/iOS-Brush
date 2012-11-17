@@ -17,5 +17,6 @@
 +(void) goChapterSelect;
 +(void) goLevelSelect;
 +(void) goGameScene;
++(void) showWinScene;
 
 @end

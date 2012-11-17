@@ -27,6 +27,9 @@
     _x = posX;
     _y = posY;
     _requiredColor = color;
+    if (self.requiredColor == 9) {
+        self.currentColor = 9;
+    }
     return self;
 }
 
@@ -41,7 +44,7 @@
     return (self.x == otherTile.x && abs(self.y - otherTile.y) == 1) || (self.y == otherTile.y && abs(self.x - otherTile.x) == 1);
 }
 
-// 0 is default, 1 is blue, 2 is red, 3 is green
+// 0 is default, 1 is blue, 2 is red, 3 is green, 9 is X
 - (void)changeColor
 {
     self.currentColor = self.currentColor + 1;
