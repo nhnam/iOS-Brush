@@ -16,6 +16,7 @@
 @property (nonatomic, strong) GameBox *box;
 @property (nonatomic, strong) Tile *currentTile;
 @property (nonatomic) int numberOfMoves;
+@property (nonatomic, strong) CCSprite *player;
 
 - (void)moveToTile:(Tile *)tile;
 - (BOOL)levelComplete;

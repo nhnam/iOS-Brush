@@ -20,6 +20,7 @@
 @synthesize box = _box;
 @synthesize currentTile = _currentTile;
 @synthesize numberOfMoves = _numberOfMoves;
+@synthesize player = _player;
 
 - (void)onBack: (id) sender
 {
@@ -40,14 +41,62 @@
     [self addChild: back];
 }
 
+- (void)movePlayerToTile:(Tile *)tile
+{
+    //animations to move to tiles position
+    float duration = 0.5;
+    CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:[tile pixPostion]];
+    [self.player runAction:move];
+}
+
 - (void)moveToTile:(Tile *)tile
 {
-    
+    NSLog(@"moving to tile: %d, %d",tile.x, tile.y);
+    [self movePlayerToTile:tile];
+    [tile changeColor];
+    self.currentTile = tile;
+    if ([self levelComplete]) {
+        //call win screen
+    }
 }
 
 - (BOOL)levelComplete
 {
-    return YES;
+    BOOL complete = YES;
+    
+    for (int y = 0; y < self.box.size.height; y++) {
+        for (int x = 0; x < self.box.size.width; x++) {
+            Tile *tile = [[self.box.content objectAtIndex:y] objectAtIndex:x];
+            if (tile.currentColor != tile.requiredColor) {
+                complete = NO;
+            }
+        }
+    }
+    
+    return complete;
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    if (self.currentTile.x == (location.x - kStartX)/kTileSize && self.currentTile.y == (location.y - kStartY)/kTileSize) {
+        self.currentTile = nil;
+        return;
+    }
+    
+    int x = (location.x - kStartX)/kTileSize;
+    int y = (location.y - kStartY)/kTileSize;
+    
+    Tile *tile = [self.box tileAtX:x Y:y];
+    if (tile.x >= 0 && tile.y >= 0) {
+        if ([self.currentTile nearTile:tile]) {
+            [self.box setLock:YES];
+            [self moveToTile:tile];
+        }
+    }
 }
 
 - (id)init {
@@ -94,7 +143,16 @@
         self.box.lock = YES;
         [self.box check];
         
+        self.currentTile = [self.box tileAtX:0 Y:0];
+        self.player = [CCSprite spriteWithFile:@"Sprite-iPad-hd.png"];
+        self.player.position = [self.currentTile pixPostion];
+        [self.box.layer addChild:self.player z:4];
+        
+        self.numberOfMoves = 0;
+        
         [self addBackButton];
+        
+        self.isTouchEnabled = YES;
     }
     return self;
 }

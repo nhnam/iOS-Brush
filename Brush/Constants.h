@@ -9,12 +9,12 @@
 #ifndef Brush_Constants_h
 #define Brush_Constants_h
 
-#define kTileSize 42.0f
+#define kTileSize 140.0f
 #define kMoveTileTime 0.3f
 #define kBoxWidth 7
 #define kBoxHeight 7
-#define kStartX 20
-#define kStartY 100
+#define kStartX 34
+#define kStartY 200
 #define kMaxLevelNo 10
 #define kMaxRecordCount 5
 #define kKindCount 5

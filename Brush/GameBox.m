@@ -76,7 +76,7 @@
             } else if (tile.requiredColor == 2) {
                 tileSprite = [CCSprite spriteWithFile:@"grey-red-iPad.png"];
             } else if (tile.requiredColor == 3) {
-                tileSprite = [CCSprite spriteWithFile:@"grey-green-iPad-hd.png"];
+                tileSprite = [CCSprite spriteWithFile:@"grey-green-iPad.png"];
             } else {
                 tileSprite = [CCSprite spriteWithFile:@"grey-x-iPad.png"];
             }

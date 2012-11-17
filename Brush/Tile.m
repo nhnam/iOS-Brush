@@ -48,6 +48,7 @@
     if (self.currentColor == 4) {
         self.currentColor = 1;
     }
+    [self updateTile];
 }
 
 - (void)updateTile
@@ -57,19 +58,19 @@
     } else if (self.currentColor == 1 && self.requiredColor == 2) {
         [self.sprite setTexture:[[CCSprite spriteWithFile:@"blue-red-iPad.png"] texture]];
     } else if (self.currentColor == 1 && self.requiredColor == 3) {
-        [self.sprite setTexture:[[CCSprite spriteWithFile:@"blue-green-iPad-hd.png"] texture]];
+        [self.sprite setTexture:[[CCSprite spriteWithFile:@"blue-green-iPad.png"] texture]];
     } else if (self.currentColor == 2 && self.requiredColor == 1) {
         [self.sprite setTexture:[[CCSprite spriteWithFile:@"red-blue-iPad.png"] texture]];
     } else if (self.currentColor == 2 && self.requiredColor == 2) {
         [self.sprite setTexture:[[CCSprite spriteWithFile:@"red-red-iPad.png"] texture]];
     } else if (self.currentColor == 2 && self.requiredColor == 3) {
-        [self.sprite setTexture:[[CCSprite spriteWithFile:@"red-green-iPad-hd.png"] texture]];
+        [self.sprite setTexture:[[CCSprite spriteWithFile:@"red-green-iPad.png"] texture]];
     } else if (self.currentColor == 3 && self.requiredColor == 1) {
         [self.sprite setTexture:[[CCSprite spriteWithFile:@"green-blue-iPad.png"] texture]];
     } else if (self.currentColor == 3 && self.requiredColor == 2) {
         [self.sprite setTexture:[[CCSprite spriteWithFile:@"green-red-iPad.png"] texture]];
     } else if (self.currentColor == 3 && self.requiredColor == 3) {
-        [self.sprite setTexture:[[CCSprite spriteWithFile:@"green-green-iPad-hd.png"] texture]];
+        [self.sprite setTexture:[[CCSprite spriteWithFile:@"green-green-iPad.png"] texture]];
     }
 }
 
