@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xV9-3x-1vs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xV9-3x-1vs">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Brush View Controller-->
@@ -136,6 +136,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QMk-ro-QpV"/>
+                    <connections>
+                        <outlet property="cocosView" destination="bi1-cp-B9i" id="eOy-wo-yxc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgY-mt-Hh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,10 +157,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e3h-ak-ExC">
-                                <rect key="frame" x="55" y="55" width="50" height="50"/>
+                                <rect key="frame" x="35" y="54" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="BackArrow.png">
+                                <state key="normal" backgroundImage="Arrow-Normal-iPad-hd.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -213,7 +216,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackArrow.png" width="100" height="100"/>
+        <image name="Arrow-Normal-iPad-hd.png" width="256" height="256"/>
         <image name="Blank@2x.png" width="1536" height="2008"/>
         <image name="Default@2x.png" width="1536" height="2008"/>
         <image name="gamecenter.png" width="360" height="100"/>
@@ -232,6 +235,9 @@
         </class>
         <class className="GameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cocosView" candidateClass="CCGLView"/>
+            </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>

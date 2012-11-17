@@ -26,9 +26,12 @@
 //    animation.
 - (void)onBack:(id)sender
 {
-    //BrushAppDelegate *app = (BrushAppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    //implement delegation protocol to return to main menu
+    BrushAppDelegate *app = (BrushAppDelegate *)[[UIApplication sharedApplication] delegate];
+    id RVC = app.window.rootViewController;
+    if ([RVC isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController *)RVC popViewControllerAnimated:YES];
+        [[CCDirector sharedDirector] end];
+    }
 }
 
 // On tapping a chapter, save the selected chapter data.
@@ -73,10 +76,11 @@
 // Adds the back button to the scene.
 - (void)addBackButton
 {
-    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"BackArrow.png"
-                                                     selectedImage:@"BackArrow.png"
+    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"Arrow-Normal-iPad.png"
+                                                     selectedImage:@"Arrow-Selected-iPad.png"
                                                             target:self
                                                           selector:@selector(onBack:)];
+    goBack.scale = 0.75;
     CCMenu *back = [CCMenu menuWithItems: goBack, nil];
     back.position = ccp(64, 64);
     [self addChild: back];

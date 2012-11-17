@@ -10,5 +10,6 @@
 
 @interface GameViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet CCGLView *cocosView;
 
 @end

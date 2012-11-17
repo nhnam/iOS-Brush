@@ -7,6 +7,8 @@
 //
 
 #import "GameViewController.h"
+#import "ChapterSelect.h"
+#import "SceneManager.h"
 
 @interface GameViewController ()
 
@@ -14,6 +16,22 @@
 
 @implementation GameViewController
 
+@synthesize cocosView = _cocosView;
 
+- (void)viewDidLoad
+{
+    [CCGLView class];
+    
+    // Initialize cocos2d director
+    CCDirector *director = [CCDirector sharedDirector];
+    director.wantsFullScreenLayout = NO;
+    director.projection = kCCDirectorProjection2D;
+    director.animationInterval = 1.0 / 60.0;
+    director.displayStats = YES;
+    [director enableRetinaDisplay:YES];
+    director.view = self.cocosView;
+    [SceneManager goChapterSelect];
+    [director startAnimation];
+}
 
 @end

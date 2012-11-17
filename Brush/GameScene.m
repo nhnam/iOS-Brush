@@ -17,6 +17,10 @@
 
 @implementation GameScene  
 
+@synthesize box = _box;
+@synthesize currentTile = _currentTile;
+@synthesize numberOfMoves = _numberOfMoves;
+
 - (void)onBack: (id) sender
 {
     [SceneManager goLevelSelect];
@@ -24,10 +28,11 @@
 
 - (void)addBackButton
 {
-    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"BackArrow.png"
-                                                         selectedImage:@"BackArrow.png"
+    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"Arrow-Normal-iPad.png"
+                                                         selectedImage:@"Arrow-Selected-iPad.png"
                                                                 target:self 
                                                               selector:@selector(onBack:)];
+    goBack.scale = 0.75;
     CCMenu *back = [CCMenu menuWithItems: goBack, nil];
 
     back.position = ccp(64, 64);
@@ -35,13 +40,23 @@
     [self addChild: back];
 }
 
+- (void)moveToTile:(Tile *)tile
+{
+    
+}
+
+- (BOOL)levelComplete
+{
+    return YES;
+}
+
 - (id)init {
     
-    if( (self=[super init])) {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
+    if( (self=[super init])) {        
+        int gameBoardWidth = 0;
+        int gameBoardHeight = 0;
         
-        int fontSize = screenSize.height / 25;
-        
+        NSString *data;
         BrushData *brushData = [BrushDataParser loadData];
         
         int selectedChapter = brushData.selectedChapter;
@@ -51,16 +66,34 @@
         
         for (Level *level in levels.levels) {
             if (level.number == selectedLevel) {
-                NSString *data = [NSString stringWithFormat:@"%@", level.data];
-                
-                CCLabelTTF *label = [CCLabelTTF labelWithString:data
-                                                       fontName:@"Marker Felt"
-                                                       fontSize:fontSize];
-                label.position = ccp( screenSize.width/2, screenSize.height/2);
-                
-                [self addChild:label z:0];
+                data = [NSString stringWithFormat:@"%@", level.data];
+                if ([data length] == 25) {
+                    gameBoardHeight = 5;
+                    gameBoardWidth = 5;
+                } else if ([data length] == 36) {
+                    gameBoardHeight = 6;
+                    gameBoardWidth = 6;
+                } else if ([data length] == 49) {
+                    gameBoardHeight = 7;
+                    gameBoardWidth = 7;
+                } else if ([data length] == 64) {
+                    gameBoardHeight = 8;
+                    gameBoardWidth = 8;
+                } else if ([data length] == 81) {
+                    gameBoardHeight = 9;
+                    gameBoardWidth = 9;
+                } else {
+                    NSLog(@"ERROR: Incorrect level specifications!");
+                }
+                break;
             }
         }
+        
+        self.box = [[GameBox alloc] initWithSize:CGSizeMake(gameBoardWidth, gameBoardHeight) Colors:data];
+        self.box.layer = self;
+        self.box.lock = YES;
+        [self.box check];
+        
         [self addBackButton];
     }
     return self;

@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "SceneManager.h"
+#import "GameBox.h"
 
 @interface GameScene : CCLayer {}
 
+@property (nonatomic, strong) GameBox *box;
+@property (nonatomic, strong) Tile *currentTile;
+@property (nonatomic) int numberOfMoves;
+
+- (void)moveToTile:(Tile *)tile;
+- (BOOL)levelComplete;
 @end

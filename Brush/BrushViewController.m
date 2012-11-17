@@ -17,7 +17,7 @@
 @end
 
 @implementation BrushViewController
-
+/*
 // When a segue is about to occur, this method is called.
 // Based on which segue is going to happen, do different things.
 // On the level selection segue: retreive the CCDirector and link
@@ -25,9 +25,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Level Selection Screen Segue"]) {
-        //start up cocos2d
-        CCDirectorIOS *director = (CCDirectorIOS *)[CCDirector sharedDirector];
-        if (director.runningScene == nil) {
+        //Set CCDirector's view if it isn't already
+        CCDirector *director = [CCDirector sharedDirector];
+        if (![director view]) {
             NSArray *array = [(UIViewController *)segue.destinationViewController view].subviews;
             for (int i = 0; i < array.count; i++) {
                 UIView *subview = [array objectAtIndex:i];
@@ -36,13 +36,13 @@
                     break;
                 }
             }
-            [SceneManager goChapterSelect];
         }
         [director startAnimation];
+        [SceneManager goChapterSelect];
     } else if ([segue.identifier isEqualToString:@"Settings Screen Segue"]) {
         
     }
-}
+}*/
 
 // When the app is opened and the initial screen (Main Menu)
 //  loads, this method is called.

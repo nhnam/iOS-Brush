@@ -44,10 +44,8 @@
     CCDirector *director = [CCDirector sharedDirector];
     CCScene *newScene = [SceneManager wrap:layer];
     if ([director runningScene]) {
-        
         [director replaceScene:newScene];
-    }
-    else {
+    } else {
         [director runWithScene:newScene];
     }
 }

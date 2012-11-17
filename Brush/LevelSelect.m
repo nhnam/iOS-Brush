@@ -30,10 +30,11 @@
 // Adds the back button to the scene
 - (void)addBackButton
 {
-    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"BackArrow.png"
-                                                     selectedImage:@"BackArrow.png"
+    CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"Arrow-Normal-iPad.png"
+                                                     selectedImage:@"Arrow-Selected-iPad.png"
                                                             target:self
                                                           selector:@selector(onBack:)];
+    goBack.scale = 0.75;
     CCMenu *back = [CCMenu menuWithItems: goBack, nil];
     back.position = ccp(64, 64);
     
