@@ -20,12 +20,16 @@
 @synthesize unlocked = _unlocked;
 @synthesize stars = _stars;
 @synthesize data = _data;
+@synthesize three = _three;
+@synthesize two = _two;
 
 -(id)initWithName:(NSString *)name
            Number:(int)number
          Unlocked:(BOOL)unlocked
             Stars:(int)stars
              Data:(NSString *)data
+            Three:(int)three
+              Two:(int)two
 {
     if ((self = [super init])) {
         self.name = name;
@@ -33,6 +37,8 @@
         self.unlocked = unlocked;
         self.stars = stars;
         self.data = data;
+        self.three = three;
+        self.two = two;
     }
     return self;
 }

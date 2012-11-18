@@ -37,11 +37,6 @@
     [SceneManager go:[GameScene node]];
 }
 
-+ (void)showWinScene
-{
-    
-}
-
 // Goes to the specified layer's scene.
 // If the CCDirector is currently running
 //  a scene, it will replace it, otherwise
@@ -57,13 +52,6 @@
     } else {
         [director runWithScene:newScene];
     }
-}
-
-+ (void)push:(CCLayer *)layer
-{
-    CCDirector *director = [CCDirector sharedDirector];
-    CCScene *newScene = [SceneManager wrap:layer];
-    [director pushScene:newScene];
 }
 
 // Wraps the given layer in a new scene.

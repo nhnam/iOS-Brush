@@ -5,7 +5,9 @@
 		<Number>1</Number>
         <Unlocked>1</Unlocked>
         <Stars>0</Stars>
-		<Data>1113392121221322291111933</Data>
+		<Data>2111121111211112111921111</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level2</Name>
@@ -13,6 +15,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 2 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level3</Name>
@@ -20,6 +24,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 3 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level4</Name>
@@ -27,6 +33,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 4 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level5</Name>
@@ -34,6 +42,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 5 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level6</Name>
@@ -41,6 +51,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 6 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level7</Name>
@@ -48,6 +60,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 7 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level8</Name>
@@ -55,6 +69,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 8 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level9</Name>
@@ -62,6 +78,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 9 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level10</Name>
@@ -69,6 +87,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 10 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level11</Name>
@@ -76,6 +96,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 11 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level12</Name>
@@ -83,6 +105,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 12 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level13</Name>
@@ -90,6 +114,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 13 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level14</Name>
@@ -97,6 +123,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 14 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level15</Name>
@@ -104,6 +132,8 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 15 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>    
 	<Level>
         <Name>Chapter1Level16</Name>
@@ -111,5 +141,7 @@
         <Unlocked>0</Unlocked>
         <Stars>0</Stars>
 		<Data>Some Chapter 1 Level 16 Data</Data>
+        <Three>25</Three>
+        <Two>25</Two>
 	</Level>     
 </Levels>

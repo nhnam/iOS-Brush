@@ -15,7 +15,6 @@
 @synthesize size = _size;
 @synthesize content = _content;
 @synthesize readyToRemoveTiles = _readyToRemoveTiles;
-@synthesize lock = _lock;
 @synthesize layer = _layer;
 @synthesize OutOfBoundsTile = _OutOfBoundsTile;
 @synthesize imgValue = _imgValue;

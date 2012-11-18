@@ -15,10 +15,14 @@
 @property (nonatomic, assign) BOOL unlocked;
 @property (nonatomic, assign) int stars;
 @property (nonatomic, copy) NSString *data;
+@property (nonatomic, assign) int three;
+@property (nonatomic, assign) int two;
    
 -(id)initWithName:(NSString *)name
            Number:(int)number
          Unlocked:(BOOL)unlocked
             Stars:(int)stars
-             Data:(NSString *)data;
+             Data:(NSString *)data
+            Three:(int)three
+              Two:(int)two;
 @end

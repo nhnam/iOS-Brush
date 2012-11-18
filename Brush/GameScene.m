@@ -64,9 +64,74 @@
         sprite = [CCSprite spriteWithFile:@"instructions1-iPad.png"];
     }
     
-//  sprite.anchorPoint = CGPointMake(0.5f, 0.5f);
     sprite.position = CGPointMake(screenSize.width / 2, kStartY / 2);
     [self addChild:sprite z:1 tag:9];
+}
+
+- (int)calculateStarsForChapter:(int)selectedChapter Level:(int)selectedLevel Moves:(int)moves
+{
+    Levels *levels = [LevelParser loadLevelsForChapter:selectedChapter];
+    int maximumMovesForThreeStars = 0;
+    int maximumMovesForTwoStars = 0;
+    
+    for (Level *level in levels.levels) {
+        if (level.number == selectedLevel) {
+            maximumMovesForThreeStars = level.three;
+            maximumMovesForTwoStars = level.two;
+            
+            if (moves <= maximumMovesForThreeStars) {
+                return 3;
+            } else if (moves <= maximumMovesForTwoStars) {
+                return 2;
+            } else {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+- (void)returnToLevels
+{
+    
+}
+
+- (void)youWin
+{
+    NSLog(@"You win!");
+    
+    int chapter, level;
+    BrushData *data = [BrushDataParser loadData];
+    chapter = data.selectedChapter;
+    level = data.selectedLevel;
+    int stars = [self calculateStarsForChapter:chapter Level:level Moves:self.numberOfMoves];
+    
+    Levels *levels = [LevelParser loadLevelsForChapter:chapter];
+    
+    for (int i = 0; i < levels.levels.count; i++) {
+        if ([[levels.levels objectAtIndex:i] number] == level) {
+            [[levels.levels objectAtIndex:i] setStars:stars];
+            break;
+        }
+    }
+    
+    for (int i = 0; i < levels.levels.count; i++) {
+        if ([[levels.levels objectAtIndex:i] number] == level + 1) {
+            [[levels.levels objectAtIndex:i] setUnlocked:YES]; 
+            break;
+        } else if (level == levels.levels.count) {
+            Levels *nextChapterLevels = [LevelParser loadLevelsForChapter:chapter + 1];
+            [[nextChapterLevels.levels objectAtIndex:0] setUnlocked:YES];
+            [LevelParser saveData:nextChapterLevels ForChapter:chapter + 1];
+            break;
+        }
+    }
+
+    [LevelParser saveData:levels ForChapter:chapter];
+    
+    ccColor4B c = {100,100,0,100};
+    WinScene *winScene = [[WinScene alloc] initWithColor:c Moves:self.numberOfMoves Stars:stars];
+    [self.parent addChild:winScene z:10 tag:99];
 }
 
 - (void)animatePlayerToTile:(Tile *)tile
@@ -88,8 +153,8 @@
         CCLabelTTF *scoreLabel = (CCLabelTTF *)[self getChildByTag:10];
         [scoreLabel setString:[NSString stringWithFormat:@"Moves: %d",self.numberOfMoves]];
         if ([self levelComplete]) {
-            NSLog(@"You win!");
-            //call win screen
+            self.isTouchEnabled = NO;
+            [self youWin];
         }
     }
 }
@@ -124,8 +189,8 @@
     }
     
     if (location.y < (kStartY) || location.y > (kStartY + (kTileSize * self.box.size.height))) {
-		return;
-	}
+        return;
+    }
     
     if (location.x < (kStartX) || location.x > (kStartX + (kTileSize * self.box.size.width)))  {
         return;
@@ -133,11 +198,10 @@
     
     int x = (location.x - kStartX)/kTileSize;
     int y = (location.y - kStartY)/kTileSize;
-    
+
     Tile *tile = [self.box tileAtX:x Y:y];
     if (tile.x >= 0 && tile.y >= 0) {
         if ([self.currentTile nearTile:tile]) {
-            [self.box setLock:YES];
             [self moveToTile:tile];
         }
     }
@@ -188,12 +252,12 @@
         
         self.box = [[GameBox alloc] initWithSize:CGSizeMake(gameBoardWidth, gameBoardHeight) Colors:data];
         self.box.layer = self;
-        self.box.lock = YES;
         [self.box check];
         
         self.currentTile = [self.box tileAtX:0 Y:0];
         self.player = [CCSprite spriteWithFile:@"sprite-left-iPad.png"];
         self.player.position = [self.currentTile pixPostion];
+        [[self.box tileAtX:0 Y:0] changeColor];
         [self.box.layer addChild:self.player z:4];
         
         self.numberOfMoves = 0;

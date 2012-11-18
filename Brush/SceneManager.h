@@ -11,12 +11,12 @@
 #import "ChapterSelect.h"
 #import "LevelSelect.h"
 #import "GameScene.h"
+#import "WinScene.h"
 
 @interface SceneManager : NSObject {}
 
 +(void) goChapterSelect;
 +(void) goLevelSelect;
 +(void) goGameScene;
-+(void) showWinScene;
 
 @end

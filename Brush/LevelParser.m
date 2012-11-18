@@ -43,6 +43,8 @@
     BOOL unlocked;
     int stars;
     NSString *data;
+    int three;
+    int two;
     Levels *levels = [[Levels alloc] init];
 
     NSString *filePath = [self dataFilePath:FALSE ForChapter:chapter];
@@ -63,6 +65,8 @@
         NSArray *unlockedArray = [element elementsForName:@"Unlocked"];
         NSArray *starsArray = [element elementsForName:@"Stars"];
         NSArray *levelDataArray = [element elementsForName:@"Data"];
+        NSArray *threeArray = [element elementsForName:@"Three"];
+        NSArray *twoArray = [element elementsForName:@"Two"];
         
         // Gets the name as a string
         if (nameArray.count > 0) {
@@ -94,7 +98,19 @@
             data = [levelDataElement stringValue];
         }
         
-        Level *level = [[Level alloc] initWithName:name Number:number Unlocked:unlocked Stars:stars Data:data];
+        // Gets the maximum number of moves for three stars
+        if (threeArray.count > 0) {
+            GDataXMLElement *threeElement = (GDataXMLElement *) [threeArray objectAtIndex:0];
+            three = [[threeElement stringValue] intValue];
+        }
+        
+        // Gets the maximum number of moves for two stars
+        if (twoArray.count > 0) {
+            GDataXMLElement *twoElement = (GDataXMLElement *) [twoArray objectAtIndex:0];
+            two = [[twoElement stringValue] intValue];
+        }
+        
+        Level *level = [[Level alloc] initWithName:name Number:number Unlocked:unlocked Stars:stars Data:data Three:three Two:two];
         [levels.levels addObject:level];
     }
     return levels;
@@ -113,12 +129,16 @@
         GDataXMLElement *unlockedElement = [GDataXMLNode elementWithName:@"Unlocked" stringValue:[[NSNumber numberWithBool:level.unlocked] stringValue]];
         GDataXMLElement *starsElement = [GDataXMLNode elementWithName:@"Stars" stringValue:[[NSNumber numberWithInt:level.stars] stringValue]];
         GDataXMLElement *dataElement = [GDataXMLNode elementWithName:@"Data" stringValue:level.data];
+        GDataXMLElement *threeElement = [GDataXMLNode elementWithName:@"Three" stringValue:[[NSNumber numberWithInt:level.three] stringValue]];
+        GDataXMLElement *twoElement = [GDataXMLNode elementWithName:@"Two" stringValue:[[NSNumber numberWithInt:level.two] stringValue]];
         
         [levelElement addChild:nameElement];
         [levelElement addChild:numberElement];
         [levelElement addChild:unlockedElement];
         [levelElement addChild:starsElement];
         [levelElement addChild:dataElement];
+        [levelElement addChild:threeElement];
+        [levelElement addChild:twoElement];
         
         [levelsElement addChild:levelElement];
     }

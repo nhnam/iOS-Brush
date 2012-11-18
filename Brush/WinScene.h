@@ -8,7 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameScene.h"
+#import "SceneManager.h"
 
-@interface WinScene : CCLayer {}
+typedef enum
+{
+    WinSceneINVALID = 0,
+    WinSceneBackground,
+    WinSceneLabel,
+    WinSceneStars,
+    WinSceneMenu,
+    WinSceneMAX,
+} WinSceneTags;
+
+@interface WinScene : CCLayerColor {}
+
+@property (nonatomic) CCSprite *background;
+
+- (id)initWithColor:(ccColor4B)color Moves:(int)moves Stars:(int)stars;
 
 @end

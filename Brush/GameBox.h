@@ -17,7 +17,6 @@
 @property (nonatomic, readonly) CGSize size;
 @property (nonatomic) NSMutableArray *content;
 @property (nonatomic) NSMutableSet *readyToRemoveTiles;
-@property (nonatomic) BOOL lock;
 @property (nonatomic, strong) CCLayer *layer;
 @property (nonatomic) Tile *OutOfBoundsTile;
 @property (nonatomic) NSInteger imgValue;
