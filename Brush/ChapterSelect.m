@@ -16,6 +16,7 @@
 #import "Chapter.h"
 #import "Chapters.h"
 #import "ChapterParser.h"
+#import "SimpleAudioEngine.h"
 
 @implementation ChapterSelect
 
@@ -26,6 +27,10 @@
 //    animation.
 - (void)onBack:(id)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-back.caf"];
+    
     BrushAppDelegate *app = (BrushAppDelegate *)[[UIApplication sharedApplication] delegate];
     id RVC = app.window.rootViewController;
     if ([RVC isKindOfClass:[UINavigationController class]]) {
@@ -37,6 +42,10 @@
 // On tapping a chapter, save the selected chapter data.
 - (void)onSelectChapter:(CCMenuItemImage *)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-forward.caf"];
+    
     BrushData *brushData = [BrushDataParser loadData];
     [brushData setSelectedChapter:sender.tag];
     [BrushDataParser saveData:brushData];

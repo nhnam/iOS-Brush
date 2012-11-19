@@ -29,18 +29,13 @@
     NSLog(@"Facebook Pressed.");
 }
 
-- (void)dummyMethod:(id)sender
-{
-    
-}
+- (void)dummyMethod:(id)sender {}
 
 - (id)initWithColor:(ccColor4B)color Moves:(int)moves Stars:(int)stars
 {
     if (self == [super initWithColor:color]) {
         
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        
-        self.isTouchEnabled = YES;
         
         // Background image
         self.background = [CCSprite spriteWithFile:@"win-scene-iPad.png"];
@@ -89,15 +84,6 @@
         [self addChild:menu z:WinSceneMenu tag:WinSceneMenu];
     }
     return self;
-}
-
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInView:[touch view]];
-        location = [[CCDirector sharedDirector] convertToGL:location];
-        
-    }
 }
 
 @end

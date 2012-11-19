@@ -17,32 +17,6 @@
 @end
 
 @implementation BrushViewController
-/*
-// When a segue is about to occur, this method is called.
-// Based on which segue is going to happen, do different things.
-// On the level selection segue: retreive the CCDirector and link
-//   it to the CCGLView, and then begin animation.
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Level Selection Screen Segue"]) {
-        //Set CCDirector's view if it isn't already
-        CCDirector *director = [CCDirector sharedDirector];
-        if (![director view]) {
-            NSArray *array = [(UIViewController *)segue.destinationViewController view].subviews;
-            for (int i = 0; i < array.count; i++) {
-                UIView *subview = [array objectAtIndex:i];
-                if ([subview isKindOfClass:[CCGLView class]]) {
-                    director.view = (CCGLView *)subview;
-                    break;
-                }
-            }
-        }
-        [director startAnimation];
-        [SceneManager goChapterSelect];
-    } else if ([segue.identifier isEqualToString:@"Settings Screen Segue"]) {
-        
-    }
-}*/
 
 // When the app is opened and the initial screen (Main Menu)
 //  loads, this method is called.
@@ -53,7 +27,15 @@
     
     // Begin background music if it is turned on.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults integerForKey:@"musicSetting"]) [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
+    if ([defaults integerForKey:@"musicSetting"]) [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Happy.caf" loop:YES];
+    
+    if ([defaults integerForKey:@"soundEffectsSetting"]) {
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"level-complete.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"brush1.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"brush2.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"button-back.caf"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"button-forward.caf"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

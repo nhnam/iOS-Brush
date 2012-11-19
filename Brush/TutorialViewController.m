@@ -28,17 +28,13 @@
 @synthesize pageImages = _pageImages;
 @synthesize pageViews = _pageViews;
 
-- (void)test
-{
-    NSString *data = @"alphy";
-    NSString *loc = [data substringWithRange:NSMakeRange(1, 1)];
-    NSLog(@"%@",loc);
-}
-
 // Pops the newest View Controller (TutorialViewController) from the Navigation Stack
 - (IBAction)returnToMainMenu:(UIButton *)sender
 {
-    [self test];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-back.caf"];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -111,13 +107,17 @@
 {
     [super viewDidLoad];
 	
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-forward.caf"];
+    
     self.pageImages = [NSArray arrayWithObjects:
                        [UIImage imageNamed:@"tutorial1.png"],
                        [UIImage imageNamed:@"tutorial2.png"],
                        [UIImage imageNamed:@"tutorial3.png"],
                        [UIImage imageNamed:@"tutorial4.png"],
                        [UIImage imageNamed:@"tutorial5.png"],
-                       [UIImage imageNamed:@"Sprite.png"],
+                       [UIImage imageNamed:@"sprite-left-iPad.png"],
                        nil];
     
     NSInteger pageCount = self.pageImages.count;

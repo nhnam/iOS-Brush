@@ -17,6 +17,7 @@
 #import "Chapter.h"
 #import "Chapters.h"
 #import "ChapterParser.h"
+#import "SimpleAudioEngine.h"
 
 @implementation LevelSelect  
 
@@ -24,6 +25,10 @@
 //  to the chapter selection page.
 - (void)onBack:(id)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-back.caf"];
+    
     [SceneManager goChapterSelect];
 }
 
@@ -45,6 +50,10 @@
 - (void)onPlay:(CCMenuItemImage *)sender
 {
     int selectedLevel = sender.tag;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-forward.caf"];
     
     // Load the game information
     BrushData *brushData = [BrushDataParser loadData];

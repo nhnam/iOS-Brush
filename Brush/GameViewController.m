@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "ChapterSelect.h"
 #import "SceneManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface GameViewController ()
 
@@ -21,6 +22,10 @@
 - (void)viewDidLoad
 {
     [CCGLView class];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-forward.caf"];
     
     // Initialize cocos2d director
     CCDirector *director = [CCDirector sharedDirector];

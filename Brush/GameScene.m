@@ -14,6 +14,7 @@
 #import "Level.h"
 #import "Levels.h"
 #import "LevelParser.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameScene  
 
@@ -24,6 +25,10 @@
 
 - (void)onBack: (id) sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-back.caf"];
+    
     [SceneManager goLevelSelect];
 }
 
@@ -91,14 +96,13 @@
     return 0;
 }
 
-- (void)returnToLevels
-{
-    
-}
-
 - (void)youWin
 {
     NSLog(@"You win!");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"level-complete.caf"];
     
     int chapter, level;
     BrushData *data = [BrushDataParser loadData];
@@ -129,13 +133,24 @@
 
     [LevelParser saveData:levels ForChapter:chapter];
     
-    ccColor4B c = {100,100,0,100};
+    ccColor4B c = {180,180,180,100};
     WinScene *winScene = [[WinScene alloc] initWithColor:c Moves:self.numberOfMoves Stars:stars];
     [self.parent addChild:winScene z:10 tag:99];
 }
 
 - (void)animatePlayerToTile:(Tile *)tile
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) {
+        int x = arc4random() % 2;
+        if (x == 0) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"brush1.caf"];
+        } else if (x == 1) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"brush2.caf"];
+        }
+    }
+    
     //animations to move player to tiles position
     float duration = 0.5;
     CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:[tile pixPostion]];

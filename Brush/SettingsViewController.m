@@ -25,6 +25,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
+    if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"button-forward.caf"];
 }
 
 // On dismissal of the settings popover, this is called.
@@ -41,7 +44,7 @@
     if (musicBool) {
         music = 1;
         [defaults setInteger:music forKey:@"musicSetting"];
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Happy.caf" loop:YES];
     } else {
         music = 0;
         [defaults setInteger:music forKey:@"musicSetting"];

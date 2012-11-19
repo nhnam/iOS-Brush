@@ -226,6 +226,36 @@
         <image name="soundeffects.png" width="360" height="100"/>
         <image name="tutorial.png" width="700" height="230"/>
     </resources>
+    <classes>
+        <class className="BrushViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrushViewController.h"/>
+        </class>
+        <class className="CCGLView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCGLView.h"/>
+        </class>
+        <class className="GameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cocosView" candidateClass="CCGLView"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameCenterSetting" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="musicSetting" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="soundEffectsSetting" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="TutorialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToMainMenu:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
