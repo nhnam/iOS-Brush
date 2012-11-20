@@ -11,8 +11,11 @@
 
 @interface Tile : NSObject
 
+// Properties for an individual tile
+//  Each has an x and y coordinate, a current and required color, and a sprite to display its image
 @property (nonatomic, readonly) int x;
 @property (nonatomic, readonly) int y;
+@property (nonatomic) float size;
 @property (nonatomic) int currentColor;  // 0 is default, 1 is blue, 2 is red, 3 is green
 @property (nonatomic, readonly) int requiredColor;
 @property (nonatomic, strong) CCSprite *sprite;

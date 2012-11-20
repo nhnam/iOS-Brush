@@ -11,6 +11,7 @@
 #import "GameScene.h"
 #import "SceneManager.h"
 
+// Enumeration type used for tagging the different layers in the win screen
 typedef enum
 {
     WinSceneINVALID = 0,

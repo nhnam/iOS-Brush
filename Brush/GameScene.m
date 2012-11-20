@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 SDD_Team. All rights reserved.
 //
 
-// Game scene ( note: not yet finished )
+// Game scene
 
 #import "GameScene.h"
 #import "BrushData.h"
@@ -23,6 +23,8 @@
 @synthesize numberOfMoves = _numberOfMoves;
 @synthesize player = _player;
 
+// On pressing the back arrow button, this method is called
+// It plays a sound effect and then returns to the level selection screen
 - (void)onBack: (id) sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -32,6 +34,7 @@
     [SceneManager goLevelSelect];
 }
 
+// This method adds the back arrow button to the scene
 - (void)addBackButton
 {
     CCMenuItemImage *goBack = [CCMenuItemImage itemWithNormalImage:@"Arrow-Normal-iPad.png"
@@ -46,39 +49,44 @@
     [self addChild: back];
 }
 
+// This method adds the score label to the scene
 - (void)addScoreLabel
 {
     CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    // Create the label
     CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:@"Moves: 0" fontName:@"Arial" fontSize:36];
+    
+    // Position the label and set it's color
     scoreLabel.position = CGPointMake(screenSize.width/2,screenSize.height);
     scoreLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
     scoreLabel.color = ccc3(175, 207, 219);
+    
+    // Add the label
     [self addChild:scoreLabel z:1 tag:10];
 }
 
+// Adds the tile info image at the bottom of the game screen
 - (void)addInstructionsForLevel:(NSString *)data
 {
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    CCSprite *sprite;
+    CCSprite *sprite = [CCSprite spriteWithFile:@"instructions-iPad.png"];
     
-    if ([data rangeOfString:@"3"].location != NSNotFound) {
-        sprite = [CCSprite spriteWithFile:@"instructions3-iPad.png"];
-    } else if ([data rangeOfString:@"2"].location != NSNotFound) {
-        sprite = [CCSprite spriteWithFile:@"instructions2-iPad.png"];
-    } else {
-        sprite = [CCSprite spriteWithFile:@"instructions1-iPad.png"];
-    }
-    
+    // Position the image and add it
     sprite.position = CGPointMake(screenSize.width / 2, kStartY / 2);
     [self addChild:sprite z:1 tag:9];
 }
 
+// Calculates the number of stars that should be awarded for the given level based on the
+//  number of moves the player has made
 - (int)calculateStarsForChapter:(int)selectedChapter Level:(int)selectedLevel Moves:(int)moves
 {
+    // Read in the information for the star calculation from the XML file
     Levels *levels = [LevelParser loadLevelsForChapter:selectedChapter];
     int maximumMovesForThreeStars = 0;
     int maximumMovesForTwoStars = 0;
     
+    // Perform the calculation
     for (Level *level in levels.levels) {
         if (level.number == selectedLevel) {
             maximumMovesForThreeStars = level.three;
@@ -96,14 +104,17 @@
     return 0;
 }
 
+// This method is called upon successful level completion
 - (void)youWin
 {
     NSLog(@"You win!");
     
+    // Play the winning sound effect
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
     if (soundEffects) [[SimpleAudioEngine sharedEngine] playEffect:@"level-complete.caf"];
     
+    // Calculate the awarded stars for the current level
     int chapter, level;
     BrushData *data = [BrushDataParser loadData];
     chapter = data.selectedChapter;
@@ -112,6 +123,7 @@
     
     Levels *levels = [LevelParser loadLevelsForChapter:chapter];
     
+    // Update the stars data from the XML file
     for (int i = 0; i < levels.levels.count; i++) {
         if ([[levels.levels objectAtIndex:i] number] == level) {
             [[levels.levels objectAtIndex:i] setStars:stars];
@@ -119,6 +131,7 @@
         }
     }
     
+    // Unlock the next level
     for (int i = 0; i < levels.levels.count; i++) {
         if ([[levels.levels objectAtIndex:i] number] == level + 1) {
             [[levels.levels objectAtIndex:i] setUnlocked:YES]; 
@@ -131,15 +144,19 @@
         }
     }
 
+    // Save the updated data
     [LevelParser saveData:levels ForChapter:chapter];
     
+    // Create the win screen and overlay it over the game screen
     ccColor4B c = {180,180,180,100};
     WinScene *winScene = [[WinScene alloc] initWithColor:c Moves:self.numberOfMoves Stars:stars];
     [self.parent addChild:winScene z:10 tag:99];
 }
 
+// This method handles the animation of the player avatar
 - (void)animatePlayerToTile:(Tile *)tile
 {
+    // Play the movement sound effect
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int soundEffects = [defaults integerForKey:@"soundEffectSetting"];
     if (soundEffects) {
@@ -151,12 +168,17 @@
         }
     }
     
-    //animations to move player to tiles position
+    // Perform animations to move player to tiles position
     float duration = 0.5;
     CCMoveTo *move = [CCMoveTo actionWithDuration:duration position:[tile pixPostion]];
     [self.player runAction:move];
 }
 
+// Performs all necessary actions to move to a new tile
+//  - animates the player avatar to the new tile
+//  - changes the tile's color
+//  - updates the current tile and the number of moves
+//  - checks if the level has been successfully completed
 - (void)moveToTile:(Tile *)tile
 {
     if (tile.requiredColor == 1 || tile.requiredColor == 2 || tile.requiredColor == 3) {
@@ -174,6 +196,8 @@
     }
 }
 
+// Checks to see if the level has been successfully completed by comparing every
+//  tile's required color to it's current color
 - (BOOL)levelComplete
 {
     BOOL complete = YES;
@@ -191,29 +215,58 @@
     return complete;
 }
 
+- (float)getTileSize
+{
+    switch ((int)self.box.size.width) {
+        case 5:
+            return kTileSize5x5;
+            break;
+        case 6:
+            return kTileSize6x6;
+            break;
+        case 7:
+            return kTileSize7x7;
+            break;
+        case 8:
+            return kTileSize8x8;
+            break;
+        case 9:
+            return kTileSize9x9;
+            break;
+        default:
+            return kTileSize5x5;
+            break;
+    }
+}
+
+// Cocos2d method for registering touches
+// Used to perform actions based on the user's gestures
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:touch.view];
     location = [[CCDirector sharedDirector] convertToGL:location];
+    float tileSize = [self getTileSize];
     
-    if (self.currentTile.x == (location.x - kStartX)/kTileSize && self.currentTile.y == (location.y - kStartY)/kTileSize) {
-        NSLog(@"Current Tile now nil.");
-        self.currentTile = nil;
+    // If the user taps on the same tile, return so as to not crash
+    if (self.currentTile.x == (location.x - kStartX)/tileSize && self.currentTile.y == (location.y - kStartY)/tileSize) {
         return;
     }
     
-    if (location.y < (kStartY) || location.y > (kStartY + (kTileSize * self.box.size.height))) {
+    // If the user taps outside of the game board, return so as to not crash
+    if (location.y < (kStartY) || location.y > (kStartY + (tileSize * self.box.size.height))) {
         return;
     }
     
-    if (location.x < (kStartX) || location.x > (kStartX + (kTileSize * self.box.size.width)))  {
+    // If the user taps outside of the game board, return so as to not crash
+    if (location.x < (kStartX) || location.x > (kStartX + (tileSize * self.box.size.width)))  {
         return;
     }
     
-    int x = (location.x - kStartX)/kTileSize;
-    int y = (location.y - kStartY)/kTileSize;
-
+    int x = (location.x - kStartX)/tileSize;
+    int y = (location.y - kStartY)/tileSize;
+    
+    // If the user taps on an adjacent tile, move to that tile
     Tile *tile = [self.box tileAtX:x Y:y];
     if (tile.x >= 0 && tile.y >= 0) {
         if ([self.currentTile nearTile:tile]) {
@@ -222,12 +275,14 @@
     }
 }
 
+// Initializer for the game screen. Called by cocos2d when the screen is going to appear
 - (id)init
 {    
     if( (self=[super init])) {
         int gameBoardWidth = 0;
         int gameBoardHeight = 0;
         
+        // Read in required game data
         NSString *data;
         BrushData *brushData = [BrushDataParser loadData];
         
@@ -236,6 +291,7 @@
         
         Levels *levels = [LevelParser loadLevelsForChapter:selectedChapter];
         
+        // Set game board width and height based on level information
         for (Level *level in levels.levels) {
             if (level.number == selectedLevel) {
                 data = [NSString stringWithFormat:@"%@", level.data];
@@ -255,6 +311,7 @@
                     gameBoardHeight = 9;
                     gameBoardWidth = 9;
                 } else {
+                    // If the level is not implemented correctly, use default level information
                     NSLog(@"ERROR: Incorrect level specifications!");
                     NSLog(@"Using default level...");
                     data = @"1111111111111111111111111";
@@ -265,22 +322,30 @@
             }
         }
         
+        // Create the game board
         self.box = [[GameBox alloc] initWithSize:CGSizeMake(gameBoardWidth, gameBoardHeight) Colors:data];
         self.box.layer = self;
         [self.box check];
         
+        float tileSize = [self getTileSize];
+        
+        // Set the properties for the game screen (current tile, player, number of moves)
         self.currentTile = [self.box tileAtX:0 Y:0];
         self.player = [CCSprite spriteWithFile:@"sprite-left-iPad.png"];
+        self.player.scaleX = tileSize / self.player.contentSize.width;
+        self.player.scaleY = tileSize / self.player.contentSize.height;
         self.player.position = [self.currentTile pixPostion];
         [[self.box tileAtX:0 Y:0] changeColor];
         [self.box.layer addChild:self.player z:4];
         
         self.numberOfMoves = 0;
         
+        // Add the back button, score label, and tile info image
         [self addBackButton];
         [self addScoreLabel];
         [self addInstructionsForLevel:data];
         
+        // Allow touch recognition
         self.isTouchEnabled = YES;
     }
     return self;

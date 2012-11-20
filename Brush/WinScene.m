@@ -13,24 +13,33 @@
 
 @synthesize background = _background;
 
+// This method is called when the user presses the levels button on the win screen
+//  Returns the user to the level selection screen
 - (void)onSelectLevels:(id)sender
 {
     NSLog(@"Levels Pressed.");
     [SceneManager goLevelSelect];
 }
 
+// This method is called when the user presses the twitter button on the win screen
+//  Currently not implemented
 - (void)onSelectTwitter:(id)sender
 {
     NSLog(@"Twitter Pressed.");
 }
 
+// This method is called when the user presses the facebook button on the win screen
+//  Currently not implemented
 - (void)onSelectFacebook:(id)sender
 {
     NSLog(@"Facebook Pressed.");
 }
 
+// Empty method used for padding the win screen menu with empty space
+//  Shortcoming of cocos2d CCMenu class
 - (void)dummyMethod:(id)sender {}
 
+// Initializer for the win screen
 - (id)initWithColor:(ccColor4B)color Moves:(int)moves Stars:(int)stars
 {
     if (self == [super initWithColor:color]) {

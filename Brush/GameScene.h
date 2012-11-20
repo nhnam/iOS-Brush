@@ -13,6 +13,10 @@
 
 @interface GameScene : CCLayer {}
 
+// Properties for the game scene
+// The box is the game board, currentTile is the tile the player is on,
+//   the numberOfMoves is the total number of moves the player has made,
+//   and the player is the sprite for the player avatar
 @property (nonatomic, strong) GameBox *box;
 @property (nonatomic, strong) Tile *currentTile;
 @property (nonatomic) int numberOfMoves;

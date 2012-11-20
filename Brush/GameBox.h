@@ -12,14 +12,13 @@
 
 @interface GameBox : NSObject
 
-@property (nonatomic) id first;
-@property (nonatomic) id second;
+// Game board has a size, has an array to handle the tiles, a set to handle removing tiles,
+//  a CCLayer, and an error tile
 @property (nonatomic, readonly) CGSize size;
 @property (nonatomic) NSMutableArray *content;
 @property (nonatomic) NSMutableSet *readyToRemoveTiles;
 @property (nonatomic, strong) CCLayer *layer;
 @property (nonatomic) Tile *OutOfBoundsTile;
-@property (nonatomic) NSInteger imgValue;
 
 - (id)initWithSize:(CGSize)size Colors:(NSString *)colors;
 - (Tile *)tileAtX:(int)posX Y:(int)posY;
